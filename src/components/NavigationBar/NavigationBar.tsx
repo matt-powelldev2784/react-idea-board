@@ -31,6 +31,8 @@ const Header = styled.header`
 const StyledLogo = styled(Logo)`
   width: 180px;
   height: 60px;
+  min-width: 160px;
+  min-height: 45px;
   padding: 3px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
