@@ -1,25 +1,19 @@
-import React from 'react'
 import styled from 'styled-components'
+import { NavItem } from './components/NavItem'
 
 export const DesktopNavigation = () => {
   return (
     <>
-      <NavLinks>
-        <NavItem>
-          <NavLink href="#home">Home</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#about">About</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#contact">Contact</NavLink>
-        </NavItem>
-      </NavLinks>
+      <StyledNavLinks>
+        <NavItem href="https://www.instagram.com/" text="Instagram" />
+        <NavItem href="https://www.facebook.com/" text="Facebook" />
+        <NavItem href="https://www.linkedin.com/" text="LinkedIn" />
+      </StyledNavLinks>
     </>
   )
 }
 
-const NavLinks = styled.ul`
+const StyledNavLinks = styled.ul`
   display: none;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -29,11 +23,4 @@ const NavLinks = styled.ul`
     padding: 0;
     margin: 0;
   }
-`
-
-const NavItem = styled.li``
-
-const NavLink = styled.a`
-  text-decoration: none;
-  color: inherit;
 `

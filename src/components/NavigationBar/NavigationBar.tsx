@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { MobileNavigation } from './components/MobileNavigation/MobileNavigation'
 import { IDBLogo } from '../../assets/images/svg'
+import { MobileNavigation } from './components/MobileNavigation/MobileNavigation'
 import { DesktopNavigation } from './components/desktopNavigation/DesktopNavigation'
 
 export const NavigationBar = () => {
