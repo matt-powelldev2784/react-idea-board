@@ -18,7 +18,7 @@ export const NavigationBar = () => {
 const Header = styled.header`
   width: 100%;
   height: 66px;
-  padding: 0 5px;
+  padding: 0 8px;
   display: flex;
   align-items: center;
 
@@ -31,8 +31,8 @@ const Header = styled.header`
 const StyledLogo = styled(Logo)`
   width: 180px;
   height: 60px;
-  min-width: 160px;
-  min-height: 45px;
+  min-width: 140px;
+  min-height: 30px;
   padding: 3px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
