@@ -1,21 +1,22 @@
-import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as Logo } from '../../assets/images/idb_logo.svg'
+import { MobileNavigation } from './components/MobileNavigation/MobileNavigation'
+import { IDBLogo } from '../../assets/images/svg'
+import { DesktopNavigation } from './components/desktopNavigation/DesktopNavigation'
 
 export const NavigationBar = () => {
   return (
-    <Header>
+    <StyledHeader>
       <StyledLogo />
 
-      <Navigation>
-        <p>1</p>
-        <p>2</p>
-      </Navigation>
-    </Header>
+      <StyledNavigation>
+        <MobileNavigation />
+        <DesktopNavigation />
+      </StyledNavigation>
+    </StyledHeader>
   )
 }
 
-const Header = styled.header`
+const StyledHeader = styled.header`
   width: 100%;
   height: 66px;
   padding: 0 8px;
@@ -28,7 +29,7 @@ const Header = styled.header`
   }
 `
 
-const StyledLogo = styled(Logo)`
+const StyledLogo = styled(IDBLogo)`
   width: 180px;
   height: 60px;
   min-width: 140px;
@@ -42,7 +43,7 @@ const StyledLogo = styled(Logo)`
   }
 `
 
-const Navigation = styled.nav`
+const StyledNavigation = styled.nav`
   height: 100%;
   width: 100%;
   display: flex;
