@@ -4,12 +4,15 @@ import styled from 'styled-components'
 interface NavItemProps {
   to: string
   text: string
+  toggleMenu: () => void
 }
 
-export const NavItem = ({ to, text }: NavItemProps) => {
+export const NavItem = ({ to, text, toggleMenu }: NavItemProps) => {
   return (
     <StyledNavItem>
-      <StyledNavLink to={to}>{text.toUpperCase()}</StyledNavLink>
+      <StyledNavLink to={to} onClick={toggleMenu}>
+        {text.toUpperCase()}
+      </StyledNavLink>
     </StyledNavItem>
   )
 }
