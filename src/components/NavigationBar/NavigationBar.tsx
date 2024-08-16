@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { IDBLogo } from '../../assets/images/svg'
 import { MobileNavigation } from './components/MobileNavigation/MobileNavigation'
 import { DesktopNavigation } from './components/desktopNavigation/DesktopNavigation'
+import { Logo } from '../../ui/logo/Logo'
 
 export const NavigationBar = () => {
   return (
     <StyledHeader>
-      <StyledLogo />
+      <Logo />
 
       <StyledNavigation>
         <MobileNavigation />
@@ -26,20 +26,6 @@ const StyledHeader = styled.header`
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     height: 75px;
     padding: 0 30px;
-  }
-`
-
-const StyledLogo = styled(IDBLogo)`
-  width: 180px;
-  height: 60px;
-  min-width: 140px;
-  min-height: 30px;
-  padding: 3px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    width: 210px;
-    height: 65px;
-    margin: 5px;
   }
 `
 
