@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 import { NavItem } from './components/NavItem'
+import { navItemsList } from '../navItemsList/navItemsList'
 
 export const DesktopNavigation = () => {
   return (
     <>
       <StyledNavLinks>
-        <NavItem href="https://www.instagram.com/" text="Home" />
-        <NavItem href="https://www.facebook.com/" text="Create Idea" />
-        <NavItem href="https://www.linkedin.com/" text="Idea List" />
-        <NavItem href="https://www.linkedin.com/" text="Idea List" />
+        {navItemsList.map((item) => (
+          <NavItem key={item.key} href={item.href} text={item.name} />
+        ))}
       </StyledNavLinks>
     </>
   )
