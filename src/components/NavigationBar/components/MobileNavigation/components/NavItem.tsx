@@ -25,9 +25,11 @@ const StyledNavItem = styled.li`
 `
 
 const StyledNavLink = styled.a`
+  width: 100%;
   text-decoration: none;
   padding-top: 5px;
   padding-bottom: 5px;
+  text-align: center;
 
   color: ${({ theme }) => theme.colors.secondaryWhite};
 `

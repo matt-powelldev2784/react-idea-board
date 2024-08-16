@@ -2,20 +2,43 @@
 import styled from 'styled-components'
 import { BurgerImage } from '../../../../assets/images/svg'
 import { NavItem } from './components/NavItem'
+import { useState } from 'react'
 
 export const MobileNavigation = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const toggleMenu = () => setIsOpen((prev) => !prev)
+
   return (
     <>
-      <StyledBurger />
-      <StyledNavLinks>
-        <NavItem href="https://www.instagram.com/" text="Home" />
-        <NavItem href="https://www.facebook.com/" text="Create Idea" />
-        <NavItem href="https://www.linkedin.com/" text="Idea List" />
-        <NavItem href="https://www.linkedin.com/" text="Idea List" />
-      </StyledNavLinks>
+      <StyledButton onClick={toggleMenu}>
+        <StyledBurger />
+      </StyledButton>
+      {isOpen ? (
+        <StyledNavLinks>
+          <NavItem href="https://www.instagram.com/" text="Home" />
+          <NavItem href="https://www.facebook.com/" text="Create Idea" />
+          <NavItem href="https://www.linkedin.com/" text="Idea List" />
+          <NavItem href="https://www.linkedin.com/" text="Idea List" />
+        </StyledNavLinks>
+      ) : null}
     </>
   )
 }
+
+const StyledButton = styled.button`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: none;
+  }
+`
 
 const StyledBurger = styled(BurgerImage)`
   width: 30px;
