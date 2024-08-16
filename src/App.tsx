@@ -1,9 +1,10 @@
-import { NavigationBar } from './components'
+import AppRouter from './AppRouter'
+
 
 function App() {
   return (
     <>
-      <NavigationBar />
+      <AppRouter />
     </>
   )
 }
