@@ -6,8 +6,8 @@
 }
 
 @font-face {
-  font-family: 'Roboto_700Bold';
-  src: url('./assets/fonts/LibreFranklin_700Bold.ttf') format('truetype');
+  font-family: 'Roboto_600Bold';
+  src: url('./assets/fonts/LibreFranklin_600SemiBold.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
