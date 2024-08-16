@@ -23,4 +23,5 @@ const StyledNavItem = styled.li`
 const StyledNavLink = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.primaryBlue};
+  font-family: 'Roboto_600Bold';
 `
