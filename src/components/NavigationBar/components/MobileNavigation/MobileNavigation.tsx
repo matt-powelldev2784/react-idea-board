@@ -17,7 +17,7 @@ export const MobileNavigation = () => {
       {isOpen ? (
         <StyledNavLinks>
           {navItemsList.map((item) => (
-            <NavItem key={item.key} href={item.href} text={item.name} />
+            <NavItem key={item.key} to={item.to} text={item.name} />
           ))}
         </StyledNavLinks>
       ) : null}

@@ -1,14 +1,15 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 interface NavItemProps {
-  href: string
+  to: string
   text: string
 }
 
-export const NavItem = ({ href, text }: NavItemProps) => {
+export const NavItem = ({ to, text }: NavItemProps) => {
   return (
     <StyledNavItem>
-      <StyledNavLink href={href}>{text.toUpperCase()}</StyledNavLink>
+      <StyledNavLink to={to}>{text.toUpperCase()}</StyledNavLink>
     </StyledNavItem>
   )
 }
@@ -24,12 +25,13 @@ const StyledNavItem = styled.li`
   border-radius: 10px;
 `
 
-const StyledNavLink = styled.a`
+const StyledNavLink = styled(Link)`
   width: 100%;
   text-decoration: none;
   padding-top: 5px;
   padding-bottom: 5px;
   text-align: center;
+  decoration: none;
 
   color: ${({ theme }) => theme.colors.secondaryWhite};
 `

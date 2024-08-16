@@ -1,14 +1,15 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 interface NavItemProps {
-  href: string
+  to: string
   text: string
 }
 
-export const NavItem = ({ href, text }: NavItemProps) => {
+export const NavItem = ({ to, text }: NavItemProps) => {
   return (
     <StyledNavItem>
-      <StyledNavLink href={href}>{text.toUpperCase()}</StyledNavLink>
+      <StyledNavLink to={to}>{text.toUpperCase()}</StyledNavLink>
     </StyledNavItem>
   )
 }
@@ -20,7 +21,7 @@ const StyledNavItem = styled.li`
   align-items: center;
 `
 
-const StyledNavLink = styled.a`
+const StyledNavLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.primaryBlue};
   font-family: 'Roboto_600Bold';

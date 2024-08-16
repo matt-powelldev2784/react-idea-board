@@ -1,28 +1,23 @@
 interface NavItem {
   key: number
   name: string
-  href: string
+  to: string
 }
 
 export const navItemsList: NavItem[] = [
   {
     key: 0,
     name: 'Home',
-    href: 'https://www.instagram.com/',
+    to: '/',
   },
   {
     key: 1,
     name: 'Create Idea',
-    href: 'https://www.facebook.com/',
+    to: '/create-idea',
   },
   {
     key: 2,
     name: 'Idea List',
-    href: 'https://www.linkedin.com/',
-  },
-  {
-    key: 3,
-    name: 'Idea List',
-    href: 'https://www.linkedin.com/',
+    to: 'idea-list',
   },
 ]
