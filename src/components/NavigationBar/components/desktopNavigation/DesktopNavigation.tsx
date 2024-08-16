@@ -5,9 +5,10 @@ export const DesktopNavigation = () => {
   return (
     <>
       <StyledNavLinks>
-        <NavItem href="https://www.instagram.com/" text="Instagram" />
-        <NavItem href="https://www.facebook.com/" text="Facebook" />
-        <NavItem href="https://www.linkedin.com/" text="LinkedIn" />
+        <NavItem href="https://www.instagram.com/" text="Home" />
+        <NavItem href="https://www.facebook.com/" text="Create Idea" />
+        <NavItem href="https://www.linkedin.com/" text="Idea List" />
+        <NavItem href="https://www.linkedin.com/" text="Idea List" />
       </StyledNavLinks>
     </>
   )
@@ -18,7 +19,7 @@ const StyledNavLinks = styled.ul`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     display: flex;
-    gap: 16px;
+    gap: 50px;
     list-style: none;
     padding: 0;
     margin: 0;

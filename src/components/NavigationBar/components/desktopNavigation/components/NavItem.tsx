@@ -8,14 +8,19 @@ interface NavItemProps {
 export const NavItem = ({ href, text }: NavItemProps) => {
   return (
     <StyledNavItem>
-      <StyledNavLink href={href}>{text}</StyledNavLink>
+      <StyledNavLink href={href}>{text.toUpperCase()}</StyledNavLink>
     </StyledNavItem>
   )
 }
 
-const StyledNavItem = styled.li``
+const StyledNavItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+`
 
 const StyledNavLink = styled.a`
   text-decoration: none;
-  color: inherit;
+  color: ${({ theme }) => theme.colors.primaryBlue};
 `
