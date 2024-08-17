@@ -18,6 +18,7 @@ export const NavigationBar = () => {
 }
 
 const StyledHeader = styled.header`
+  position: relative;
   width: 100%;
   height: 66px;
   padding: 0 8px;
