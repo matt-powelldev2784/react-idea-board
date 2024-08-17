@@ -9,7 +9,7 @@ export const Home = () => {
   )
 }
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.section`
   width: 100%;
   max-height: 600px;
   overflow: hidden;
