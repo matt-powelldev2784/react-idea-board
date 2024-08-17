@@ -9,6 +9,7 @@ export const NavigationBar = () => {
       <Logo />
 
       <StyledNavigation>
+        {/* Mobile or Desktop navigation is conditonally rendered based on screen size using CSS */}
         <MobileNavigation />
         <DesktopNavigation />
       </StyledNavigation>
