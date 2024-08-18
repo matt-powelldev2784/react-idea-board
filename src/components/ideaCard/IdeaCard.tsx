@@ -21,20 +21,22 @@ export const IdeaCard = ({
         <StyledImage src={childWithIdeaImage} alt="Child with idea" />
       </StyledImageContainer>
 
-      <StyledTitle>{title}</StyledTitle>
-      <StyledDescription>{description}</StyledDescription>
-
       <StyledTextContainer>
+        <StyledTitle>{title}</StyledTitle>
+        <StyledDescription>{description}</StyledDescription>
+      </StyledTextContainer>
+
+      <StyledFooterContainer>
         <StyledFooterText>Last Updated: {lastUpdated}</StyledFooterText>
         <Stars numberOfStars={numberOfStars} />
-      </StyledTextContainer>
+      </StyledFooterContainer>
     </StyledArticle>
   )
 }
 
 const StyledArticle = styled.article`
   width: 95%;
-  height: 'fit-content';
+  height: 310px;
   background-color: #fff;
   border-radius: 18px;
   border: 1.4px solid #c0c0c0;
@@ -64,6 +66,13 @@ const StyledImage = styled.img`
   object-fit: cover;
 `
 
+const StyledTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100px;
+`
+
 const StyledTitle = styled.p`
   font-size: 18px;
   font-family: 'Roboto_600Bold';
@@ -81,19 +90,18 @@ const StyledDescription = styled.p`
   color: #6e6f71;
 `
 
-const StyledTextContainer = styled.div`
+const StyledFooterContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-left: 16px;
   padding-right: 16px;
-  padding-top: 16px;
+  padding-top: 8px;
 `
 
 const StyledFooterText = styled.p`
-  font-size: 12px;
-
+  font-size: 11px;
   color: #6e6f71;
   margin: 0;
 `

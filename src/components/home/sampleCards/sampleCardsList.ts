@@ -19,7 +19,7 @@ export const sampleCardList = [
     key: 3,
     title: 'Health Tracker',
     description:
-      'A comprehensive health tracking app that monitors your daily activities and provides personalized health tips.',
+      'A comprehensive health tracking app that monitors your daily activities, provides personalized health tips, and helps you stay fit and healthy.',
     lastUpdated: '2023-09-15 14:00',
     numberOfStars: 4,
   },
