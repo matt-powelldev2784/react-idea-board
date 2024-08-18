@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import heroImage from '../../../assets/images/bitmap/light_bulb_blue_bg.jpg'
-import smallLighBulb from '../../../assets/images/bitmap/light_bulb_no_bg_sm.png'
+import lightBulb from '../../../assets/images/bitmap/light_bulb_no_bg_sm.png'
 
 export const Hero = () => {
   return (
@@ -8,7 +8,8 @@ export const Hero = () => {
       <StyledBackgroundImage src={heroImage} alt="Light bulb background" />
 
       <StyledTextContainer>
-        <StyledLightBulbImage src={smallLighBulb} alt="Light bulb" />
+        <StyledLightBulbImage src={lightBulb} alt="Light bulb" />
+
         <StyledTitle>Welcome to ID:B</StyledTitle>
         <StyledText>
           The ultimate idea board application, designed to spark creativity and
@@ -27,8 +28,9 @@ const StyledContainer = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 320px;
+  height: fit-content;
   overflow: hidden;
+  background: radial-gradient(circle, #08326d, #18448c, #18448c);
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     position: relative;
@@ -40,29 +42,14 @@ const StyledContainer = styled.section`
 `
 
 const StyledBackgroundImage = styled.img`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  min-height: 600px;
-  object-fit: cover;
-  background-color: #08346f;
+  display: none;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: block;
     position: absolute;
     width: 100%;
     height: 100%;
-    min-height: 600px;
     object-fit: cover;
-  }
-`
-
-const StyledLightBulbImage = styled.img`
-  display: relative;
-  width: 75px;
-  height: 110px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    display: none;
   }
 `
 
@@ -70,13 +57,14 @@ const StyledTextContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   gap: 5px;
   width: 100%;
-  height: 100%;
+  height: fit-content;
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
+  margin-bottom: 20px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     position: relative;
@@ -90,6 +78,17 @@ const StyledTextContainer = styled.div`
     height: 100%;
     color: ${({ theme }) => theme.colors.white};
     text-align: center;
+  }
+`
+
+const StyledLightBulbImage = styled.img`
+  display: block;
+  height: 110.25px;
+  widuth 75px;
+  margin-top: 18px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    display: none;
   }
 `
 
