@@ -5,8 +5,7 @@ interface StarProps {
 }
 
 export const Stars = ({ numberOfStars }: StarProps) => {
-  const numberOfStarsArray = Array.from({ length: numberOfStars }, (_, i) => i)
-  console.log('numberOfStarsArray', numberOfStarsArray)
+  const numberOfStarsArray = Array.from(Array(numberOfStars).keys())
 
   return (
     <div>
