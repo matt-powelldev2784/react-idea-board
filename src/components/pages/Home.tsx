@@ -4,8 +4,8 @@ import { Hero, SampleCards } from '../index'
 export const Home = () => {
   return (
     <StyledMain>
-      <SampleCards />
       <Hero />
+      <SampleCards />
     </StyledMain>
   )
 }

@@ -49,8 +49,8 @@ const StyledSectoion = styled.section`
   gap: 20px;
   width: 100%;
   height: fit-content;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 70px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
