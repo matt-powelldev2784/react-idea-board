@@ -1,12 +1,36 @@
 import styled from 'styled-components'
+import { useFormik } from 'formik'
+// import useCreateIdeaFormik from './hooks/useCreateIdeaFormik'
 import { LightBulbOutline } from '../../assets/images/svg'
 
 export const CreateIdeaForm = () => {
+  // const formik = useCreateIdeaFormik()
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+
+    onSubmit: (values) => {
+      console.log(values)
+    },
+  })
+
   return (
     <StyledContainer>
-      <StyledBackground />
-      <StyledForm>
+      <StyledForm onSubmit={formik.handleSubmit}>
         <StyledImage as={LightBulbOutline} />
+        <label htmlFor="email">Email Address</label>
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+        />
+
+        <button type="submit">Submit</button>
       </StyledForm>
     </StyledContainer>
   )
@@ -22,41 +46,27 @@ const StyledContainer = styled.section`
   align-items: flex-start;
 `
 
-const StyledBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  // background: linear-gradient(
-  //   135deg,
-  //   rgba(53, 101, 151, 0.5),
-  //   rgba(123, 164, 201, 0.5)
-  // );
-  // opacity: 0.5;
-`
+// const StyledBackground = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+// `
 
 const StyledForm = styled.form`
+  width: 400px;
+  padding: 20px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 95%;
-  height: fit-content;
-  max-width: 600px;
-  border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.colors.boxOutlineGrey};
-  margin-top: 16px;
-  background: ${({ theme }) => theme.colors.secondaryWhite};
-  z-index: 1;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    width: 100%;
-  }
+  gap: 20px;
 `
-const StyledImage = styled.svg`
-  width: 140px;
-  height: 140px;
-  padding: 16px;
+
+const StyledImage = styled.div`
+  width: 150px;
+  height: 150px;
+  padding: 20px;
 `
