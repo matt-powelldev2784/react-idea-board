@@ -18,6 +18,7 @@ export const NavigationBar = () => {
 }
 
 const StyledHeader = styled.header`
+  position: relative;
   width: 100%;
   height: 66px;
   padding: 0 8px;
@@ -38,6 +39,7 @@ const StyledNavigation = styled.nav`
   align-items: center;
   gap: 20px;
   margin-right: 15px;
+  z-index: 100;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     height: 100%;
