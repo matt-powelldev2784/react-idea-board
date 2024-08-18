@@ -2,23 +2,31 @@ import styled from 'styled-components'
 import childWithIdeaImage from '../../assets/images/bitmap/kid_idea.png'
 import { Stars } from './components/star/Stars'
 
-export const IdeaCard = () => {
+interface IdeaCardProps {
+  title: string
+  description: string
+  lastUpdated: string
+  numberOfStars: number
+}
+
+export const IdeaCard = ({
+  title,
+  description,
+  lastUpdated,
+  numberOfStars,
+}: IdeaCardProps) => {
   return (
     <StyledArticle>
       <StyledImageContainer>
         <StyledImage src={childWithIdeaImage} alt="Child with idea" />
       </StyledImageContainer>
 
-      <StyledTitle>Holiday to the moon</StyledTitle>
-      <StyledDescription>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since.
-      </StyledDescription>
+      <StyledTitle>{title}</StyledTitle>
+      <StyledDescription>{description}</StyledDescription>
 
       <StyledTextContainer>
-        <StyledFooterText>Last Updated: 12/12/24 14:00</StyledFooterText>
-        <Stars numberOfStars={5} />
+        <StyledFooterText>Last Updated: {lastUpdated}</StyledFooterText>
+        <Stars numberOfStars={numberOfStars} />
       </StyledTextContainer>
     </StyledArticle>
   )
