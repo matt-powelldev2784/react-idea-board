@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { Hero, IdeaCard } from '../index'
+import { Hero, SampleCards } from '../index'
 
 export const Home = () => {
   return (
     <StyledMain>
-      <IdeaCard />
+      <SampleCards />
       <Hero />
     </StyledMain>
   )

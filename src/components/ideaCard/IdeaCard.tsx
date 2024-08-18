@@ -26,18 +26,16 @@ export const IdeaCard = () => {
 
 const StyledArticle = styled.article`
   width: 95%;
-
   height: 'fit-content';
   background-color: #fff;
   border-radius: 18px;
   border: 1.4px solid #c0c0c0;
-  margin-bottom: 16px;
-  margin-top: 16px;
   padding-bottom: 16px;
   overflow: hidden;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    max-width: 330px;
+    width: 330px;
+    min-width: 330px;
   }
 `
 
