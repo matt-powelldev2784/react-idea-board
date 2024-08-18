@@ -28,7 +28,7 @@ export const IdeaCard = ({
 
       <StyledFooterContainer>
         <StyledFooterText>Last Updated: {lastUpdated}</StyledFooterText>
-        <Stars numberOfStars={numberOfStars} />
+        <Stars numberOfStars={numberOfStars} lastUpdated={lastUpdated} />
       </StyledFooterContainer>
     </StyledArticle>
   )

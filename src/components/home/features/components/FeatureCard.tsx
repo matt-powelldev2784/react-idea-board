@@ -2,19 +2,21 @@ import styled from 'styled-components'
 import React from 'react'
 
 interface FeatureCardProps {
+  id: number
   svgImage: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
   title: string
   description: string
 }
 
 export const FeatureCard = ({
+  id,
   svgImage,
   title,
   description,
 }: FeatureCardProps) => {
   return (
     <StyledCard>
-      <StyledImage as={svgImage} />
+      <StyledImage data-testid={`mock-svg${id}`} as={svgImage} />
       <StyledTitle>{title}</StyledTitle>
       <StyledDescription>{description}</StyledDescription>
     </StyledCard>

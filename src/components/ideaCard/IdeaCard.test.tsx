@@ -37,7 +37,9 @@ describe('IdeaCard', () => {
       Array(sampleProps.numberOfStars).keys()
     )
     numberOfStarsArray.forEach((_, index) => {
-      expect(screen.getByTestId(`stars-${index}`)).toBeInTheDocument()
+      expect(
+        screen.getByTestId(`stars-${index}${sampleProps.lastUpdated}`)
+      ).toBeInTheDocument()
     })
 
     expect(image).toHaveAttribute('src', childWithIdeaImage)

@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { MemoryRouter } from 'react-router-dom'
 import { theme } from '../../../../theme/theme'
 
+
 const MockSvg = () => <svg data-testid="mock-svg" />
 
 describe('FeatureCard', () => {
@@ -12,6 +13,8 @@ describe('FeatureCard', () => {
       <ThemeProvider theme={theme}>
         <MemoryRouter>
           <FeatureCard
+            key={1}
+            id={1}
             svgImage={MockSvg}
             title="Test Title"
             description="Test Description"

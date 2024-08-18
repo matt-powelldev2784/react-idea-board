@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { IdeaCard } from '../../index'
 import { useWindowWidth } from '../../../hooks/index'
-import { sampleCardList } from './data/sampleCardsList'
+import { sampleCardsList } from './data/sampleCardsList'
 import { FeatureCard } from './components/FeatureCard'
 import { featureCardList } from './data/featureCardList'
 
@@ -12,7 +12,7 @@ export const Features = () => {
   let numberOfCardsToDisplay = 1
   if (windowWidth > 768) numberOfCardsToDisplay = 2
   if (windowWidth > 1100) numberOfCardsToDisplay = 3
-  const sampleCardsToDisplay = sampleCardList.slice(0, numberOfCardsToDisplay)
+  const sampleCardsToDisplay = sampleCardsList.slice(0, numberOfCardsToDisplay)
 
   return (
     <StyledSectoion>
@@ -21,6 +21,7 @@ export const Features = () => {
           return (
             <FeatureCard
               key={card.key}
+              id={card.key}
               svgImage={card.svgImage}
               title={card.title}
               description={card.description}

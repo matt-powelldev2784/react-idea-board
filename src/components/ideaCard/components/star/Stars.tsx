@@ -2,15 +2,16 @@ import styled from 'styled-components'
 
 interface StarProps {
   numberOfStars: number
+  lastUpdated: string
 }
 
-export const Stars = ({ numberOfStars }: StarProps) => {
+export const Stars = ({ numberOfStars, lastUpdated }: StarProps) => {
   const numberOfStarsArray = Array.from(Array(numberOfStars).keys())
 
   return (
     <div>
       {numberOfStarsArray.map((_, i) => (
-        <StyledStar key={i} data-testid={`stars-${i}`} />
+        <StyledStar key={i} data-testid={`stars-${i}${lastUpdated}`} />
       ))}
     </div>
   )

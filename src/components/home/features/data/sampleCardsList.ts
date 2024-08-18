@@ -1,4 +1,6 @@
-export const sampleCardList = [
+import { IdeaCardT } from '../../../../types'
+
+export const sampleCardsList: IdeaCardT[] = [
   {
     key: 1,
     title: 'Revolutionary App',
