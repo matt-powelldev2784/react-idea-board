@@ -10,7 +10,7 @@ export const Stars = ({ numberOfStars }: StarProps) => {
   return (
     <div>
       {numberOfStarsArray.map((_, i) => (
-        <StyledStar key={i} />
+        <StyledStar key={i} data-testid={`stars-${i}`} />
       ))}
     </div>
   )
