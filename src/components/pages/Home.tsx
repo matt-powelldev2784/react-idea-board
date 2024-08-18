@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { Hero, SampleCards } from '../index'
+import { Hero, Features } from '../index'
 
 export const Home = () => {
   return (
     <StyledMain>
       <Hero />
-      <SampleCards />
+      <Features />
     </StyledMain>
   )
 }

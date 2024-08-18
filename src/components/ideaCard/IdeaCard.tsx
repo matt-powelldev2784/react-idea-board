@@ -28,7 +28,7 @@ export const IdeaCard = ({
 
       <StyledFooterContainer>
         <StyledFooterText>Last Updated: {lastUpdated}</StyledFooterText>
-        <Stars numberOfStars={numberOfStars} />
+        <Stars numberOfStars={numberOfStars} lastUpdated={lastUpdated} />
       </StyledFooterContainer>
     </StyledArticle>
   )
@@ -101,7 +101,7 @@ const StyledFooterContainer = styled.div`
 `
 
 const StyledFooterText = styled.p`
-  font-size: 11px;
+  font-size: 10px;
   color: #6e6f71;
   margin: 0;
 `

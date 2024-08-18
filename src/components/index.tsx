@@ -1,6 +1,6 @@
 import { NavigationBar } from './NavigationBar/NavigationBar'
 import { Hero } from './home/hero/Hero'
 import { IdeaCard } from './ideaCard/IdeaCard'
-import { SampleCards } from './home/sampleCards/SampleCards'
+import { Features } from './home/features/Features'
 
-export { NavigationBar, Hero, IdeaCard, SampleCards }
+export { NavigationBar, Hero, IdeaCard, Features }

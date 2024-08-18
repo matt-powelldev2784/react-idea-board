@@ -70,7 +70,7 @@ const StyledTextContainer = styled.div`
   height: fit-content;
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     position: relative;
