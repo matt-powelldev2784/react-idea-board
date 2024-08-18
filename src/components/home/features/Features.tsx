@@ -5,7 +5,7 @@ import { sampleCardList } from './data/sampleCardsList'
 import { FeatureCard } from './components/FeatureCard'
 import { featureCardList } from './data/featureCardList'
 
-export const SampleCards = () => {
+export const Features = () => {
   const windowWidth = useWindowWidth()
 
   // logic to determine how many cards to display based on window width
@@ -93,4 +93,3 @@ const StyledText = styled.p`
     padding-right: 20px;
   }
 `
-
