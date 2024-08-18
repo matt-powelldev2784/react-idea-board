@@ -1,11 +1,13 @@
 import styled from 'styled-components'
-import { Hero, Features } from '../index'
+import { Hero, Features, Footer } from '../index'
+
 
 export const Home = () => {
   return (
     <StyledMain>
       <Hero />
       <Features />
+      <Footer />
     </StyledMain>
   )
 }
