@@ -64,7 +64,7 @@ const StyledTextContainer = styled.div`
   height: fit-content;
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     position: relative;
@@ -85,7 +85,7 @@ const StyledLightBulbImage = styled.img`
   display: block;
   height: 110.25px;
   widuth 75px;
-  margin-top: 18px;
+  margin-top: 30px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     display: none;
