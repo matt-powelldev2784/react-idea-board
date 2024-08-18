@@ -1,9 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
-import { MobileNavigation } from '../MobileNavigation'
-import { theme } from '../../../../../theme/theme'
+import { MobileNavigation } from './MobileNavigation'
+import { theme } from '../../../../theme/theme'
 import { MemoryRouter } from 'react-router-dom'
-import { navItemsList } from '../../navItemsList/navItemsList'
+import { navItemsList } from '../navItemsList/navItemsList'
 
 describe('MobilepNavigation', () => {
   test('should render the correct number of NavItem components', () => {
