@@ -98,6 +98,7 @@ const StyledTitle = styled.h1`
   font-family: 'Roboto_600Bold';
   color: ${({ theme }) => theme.colors.tertiaryLightBlue};
   text-align: center;
+  margin-top: 5px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     width: 100%;
@@ -109,7 +110,7 @@ const StyledTitle = styled.h1`
 `
 const StyledText = styled.p`
   width: 90%;
-  font-size: 15px;
+  font-size: 16px;
   color: ${({ theme }) => theme.colors.secondaryWhite};
   text-align: center;
 
