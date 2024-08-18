@@ -4,6 +4,14 @@ import { ReactComponent as NotFoundIcon } from '../../images/svg/not-found.svg'
 import { ReactComponent as InfoIcon } from '../../images/svg/info.svg'
 import { ReactComponent as TagIcon } from '../../images/svg/tag.svg'
 import { ReactComponent as CharacterIcon } from '../../images/svg/a.svg'
+import { ReactComponent as LightBulbOutline } from '../../images/svg/light_bulb_outline.svg'
 
-
-export { BurgerImage, IDBLogo, NotFoundIcon, InfoIcon, TagIcon, CharacterIcon }
+export {
+  BurgerImage,
+  IDBLogo,
+  NotFoundIcon,
+  InfoIcon,
+  TagIcon,
+  CharacterIcon,
+  LightBulbOutline,
+}
