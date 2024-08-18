@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import heroImage from '../../../assets/images/bitmap/light_bulb_blue_bg.jpg'
 import lightBulb from '../../../assets/images/bitmap/light_bulb_no_bg_sm.png'
+import { PrimaryButton } from '../../../ui'
 
 export const Hero = () => {
   return (
@@ -17,6 +18,11 @@ export const Hero = () => {
           organizing your thoughts, ID:B offers a seamless and intuitive
           platform to capture, refine, and execute your ideas.
         </StyledText>
+
+        <PrimaryButton
+          text={'CLICK HERE TO CREATE IDEA'}
+          navigateTo={'/create-idea'}
+        />
       </StyledTextContainer>
     </StyledContainer>
   )
@@ -113,6 +119,7 @@ const StyledText = styled.p`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.secondaryWhite};
   text-align: center;
+  margin-bottom: 20px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     width: 98%;

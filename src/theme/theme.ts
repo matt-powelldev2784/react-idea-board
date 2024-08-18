@@ -3,6 +3,9 @@ export const theme = {
     primaryBlue: '#356597',
     secondaryWhite: '#ffffff',
     tertiaryLightBlue: '#7ba4c9',
+    black: '#000000',
+    buttonPrimary: '#337bcc',
+    buttonSecondary: '#6e6f71',
   },
   breakpoints: {
     large: '768px',
