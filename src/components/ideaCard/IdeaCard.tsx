@@ -8,6 +8,7 @@ export const IdeaCard = () => {
       <StyledImageContainer>
         <StyledImage src={childWithIdeaImage} alt="Child with idea" />
       </StyledImageContainer>
+
       <StyledTitle>Holiday to the moon</StyledTitle>
       <StyledDescription>
         Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -17,9 +18,7 @@ export const IdeaCard = () => {
 
       <StyledTextContainer>
         <StyledFooterText>Last Updated: 12/12/24 14:00</StyledFooterText>
-        <StyledFooterText>
-          <Stars numberOfStars={5} />
-        </StyledFooterText>
+        <Stars numberOfStars={5} />
       </StyledTextContainer>
     </StyledArticle>
   )
