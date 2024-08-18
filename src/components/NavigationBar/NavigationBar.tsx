@@ -39,6 +39,7 @@ const StyledNavigation = styled.nav`
   align-items: center;
   gap: 20px;
   margin-right: 15px;
+  z-index: 100;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     height: 100%;
