@@ -14,6 +14,18 @@ export const SampleCards = () => {
 
   return (
     <StyledSectoion>
+      {sampleCardsToDisplay.map((card) => {
+        return (
+          <IdeaCard
+            key={card.key}
+            title={card.title}
+            description={card.description}
+            lastUpdated={card.lastUpdated}
+            numberOfStars={card.numberOfStars}
+          />
+        )
+      })}
+
       <StyledText>
         ID:B is your go-to application for turning your creative sparks into
         actionable plans. Our platform is meticulously designed to foster
@@ -26,18 +38,6 @@ export const SampleCards = () => {
         life and stay organized. Join us on this journey to transform your
         creative process and achieve your goals with ease.
       </StyledText>
-
-      {sampleCardsToDisplay.map((card) => {
-        return (
-          <IdeaCard
-            key={card.key}
-            title={card.title}
-            description={card.description}
-            lastUpdated={card.lastUpdated}
-            numberOfStars={card.numberOfStars}
-          />
-        )
-      })}
     </StyledSectoion>
   )
 }
@@ -49,24 +49,24 @@ const StyledSectoion = styled.section`
   gap: 20px;
   width: 100%;
   height: fit-content;
-  padding-top: 40px;
-  padding-bottom: 70px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 `
 
 const StyledText = styled.p`
-  width: 95%;
+  width: 92%;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.primaryDarkBlue};
   text-align: center;
   margin-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `
 
