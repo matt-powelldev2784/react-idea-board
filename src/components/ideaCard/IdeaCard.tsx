@@ -101,7 +101,7 @@ const StyledFooterContainer = styled.div`
 `
 
 const StyledFooterText = styled.p`
-  font-size: 11px;
+  font-size: 10px;
   color: #6e6f71;
   margin: 0;
 `
