@@ -22,7 +22,7 @@ export const CreateIdeaForm = () => {
     initialValues: {
       title: '',
       description: '',
-      numOfStars: 0,
+      numOfStars: 1,
     },
     validationSchema,
     onSubmit: (values) => {
