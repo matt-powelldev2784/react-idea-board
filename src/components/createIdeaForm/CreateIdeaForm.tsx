@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { useFormik } from 'formik'
 // import useCreateIdeaFormik from './hooks/useCreateIdeaFormik'
 import { LightBulbOutline } from '../../assets/images/svg'
-import { Input, TextArea } from '../../ui'
+import { Input, SubmitButton, TextArea } from '../../ui'
 import * as Yup from 'yup'
 
 export const CreateIdeaForm = () => {
@@ -61,7 +61,11 @@ export const CreateIdeaForm = () => {
           labelText={'Confidence Level (1-5 stars)'}
         />
 
-        <button type="submit">Submit</button>
+        <SubmitButton
+          disabled={formik.isSubmitting || !formik.isValid}
+          text={'Submit'}
+          onClick={formik.handleSubmit}
+        />
       </StyledForm>
     </StyledContainer>
   )
@@ -83,6 +87,7 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 30px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     width: 600px;
