@@ -14,7 +14,8 @@ export const CreateIdeaForm = () => {
       .required('Description is required')
       .max(140, 'Description must be at most 140 characters'),
     numOfStars: Yup.number()
-      .min(1, 'Number of stars must be at least 1')
+      .min(1, 'Number of stars must be at least between 1 and 5')
+      .max(5, 'Number of stars must be at most between 1 and 5')
       .required('Number of stars is required'),
   })
 

@@ -48,7 +48,9 @@ export const Input = ({
         $isError={isError}
       />
 
-      {isError ? <ErrorText>Error</ErrorText> : null}
+      {isError ? (
+        <ErrorText>{formik.errors[name]?.toString()}</ErrorText>
+      ) : null}
     </StyledContainer>
   )
 }

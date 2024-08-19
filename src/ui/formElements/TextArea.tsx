@@ -45,7 +45,9 @@ export const TextArea = ({
         $isError={isError}
       />
 
-      {isError ? <ErrorText>Error</ErrorText> : null}
+      {isError ? (
+        <ErrorText>{formik.errors[name]?.toString()}</ErrorText>
+      ) : null}
     </StyledContainer>
   )
 }
