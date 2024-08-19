@@ -77,17 +77,24 @@ const StyledContainer = styled.section`
 `
 
 const StyledForm = styled.form`
-  width: 600px;
-  padding-left: 40px;
-  padding-right: 40px;
-  margin: 50px auto;
+  width: 90%;
   background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 600px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const StyledImage = styled.div`
