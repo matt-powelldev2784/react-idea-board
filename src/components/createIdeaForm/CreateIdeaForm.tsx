@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { useFormik } from 'formik'
 // import useCreateIdeaFormik from './hooks/useCreateIdeaFormik'
 import { LightBulbOutline } from '../../assets/images/svg'
-import { Input } from '../../ui'
+import { Input, TextArea } from '../../ui'
 import * as Yup from 'yup'
 
 export const CreateIdeaForm = () => {
@@ -43,12 +43,11 @@ export const CreateIdeaForm = () => {
           labelText={'Title'}
         />
 
-        <Input
+        <TextArea
           formik={formik}
           htmlFor={'description'}
           id={'description'}
           name={'description'}
-          type={'text'}
           labelText={'Description'}
         />
 

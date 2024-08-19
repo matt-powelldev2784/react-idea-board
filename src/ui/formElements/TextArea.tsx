@@ -54,10 +54,10 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 170px;
+  height: 170px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    min-height: 120px;
+    height: 130px;
   }
 `
 
