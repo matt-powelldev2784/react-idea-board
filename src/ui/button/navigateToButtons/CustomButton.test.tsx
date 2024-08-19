@@ -1,15 +1,15 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
-import { theme } from '../../theme/theme'
-import { SecondaryButton } from '../index'
+import { theme } from '../../../theme/theme'
+import { CustomButton } from '../../index'
 
-describe('SecondaryButton', () => {
+describe('CustomButton', () => {
   const renderButton = () => {
     render(
       <ThemeProvider theme={theme}>
         <MemoryRouter>
-          <SecondaryButton text="Click Me" navigateTo="/not-found" />
+          <CustomButton text="Click Me" navigateTo="/not-found" />
         </MemoryRouter>
       </ThemeProvider>
     )
