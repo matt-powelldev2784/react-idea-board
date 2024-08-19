@@ -1,35 +1,10 @@
 import styled from 'styled-components'
-import { useFormik } from 'formik'
-// import useCreateIdeaFormik from './hooks/useCreateIdeaFormik'
 import { LightBulbOutline } from '../../assets/images/svg'
 import { Input, SubmitButton, TextArea } from '../../ui'
-import * as Yup from 'yup'
+import { useCreateIdeaFormik } from './hooks/useCreateIdeaFormik'
 
 export const CreateIdeaForm = () => {
-  // const formik = useCreateIdeaFormik()
-
-  const validationSchema = Yup.object({
-    title: Yup.string().required('Title is required'),
-    description: Yup.string()
-      .required('Description is required')
-      .max(140, 'Description must be at most 140 characters'),
-    numOfStars: Yup.number()
-      .min(1, 'Number of stars must be at least between 1 and 5')
-      .max(5, 'Number of stars must be at most between 1 and 5')
-      .required('Number of stars is required'),
-  })
-
-  const formik = useFormik({
-    initialValues: {
-      title: '',
-      description: '',
-      numOfStars: 1,
-    },
-    validationSchema,
-    onSubmit: (values) => {
-      console.log(values)
-    },
-  })
+  const formik = useCreateIdeaFormik()
 
   return (
     <StyledContainer>
