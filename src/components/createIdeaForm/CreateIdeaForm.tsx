@@ -32,9 +32,9 @@ export const CreateIdeaForm = () => {
 
         <Input
           formik={formik}
-          htmlFor={'numOfStars'}
-          id={'numOfStars'}
-          name={'numOfStars'}
+          htmlFor={'numberOfStars'}
+          id={'numberOfStars'}
+          name={'numberOfStars'}
           type={'number'}
           labelText={'Confidence Level (1-5 stars)'}
         />
