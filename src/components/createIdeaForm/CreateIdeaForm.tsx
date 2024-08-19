@@ -35,6 +35,9 @@ export const CreateIdeaForm = () => {
     <StyledContainer>
       <StyledForm onSubmit={formik.handleSubmit}>
         <StyledImage as={LightBulbOutline} />
+
+        <StyledTitle>Create an Idea</StyledTitle>
+
         <Input
           formik={formik}
           htmlFor={'title'}
@@ -106,5 +109,13 @@ const StyledForm = styled.form`
 const StyledImage = styled.div`
   width: 150px;
   height: 150px;
-  padding: 20px;
+  padding-top: 20px;
+`
+
+const StyledTitle = styled.h1`
+  font-size: 24px;
+  font-family: 'Roboto_600Bold';
+  margin: 0;
+  padding-bottom: 20px;
+  color: ${({ theme }) => theme.colors.primaryBlue};
 `
