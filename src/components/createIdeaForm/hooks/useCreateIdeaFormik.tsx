@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { addIdeaToStorage } from '../../../utils'
 import { useNavigate } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 
 const validationSchema = Yup.object({
   title: Yup.string().required('Title is required'),
@@ -20,7 +21,7 @@ export const useCreateIdeaFormik = () => {
 
   const formik = useFormik({
     initialValues: {
-      key: Date.now(),
+      key: uuidv4(),
       title: '',
       description: '',
       numberOfStars: 1,
