@@ -1,4 +1,5 @@
 import { FormikProps } from 'formik'
+import { useState } from 'react'
 import styled from 'styled-components'
 
 interface InputProps {
@@ -18,7 +19,19 @@ export const Input = ({
   type,
   labelText,
 }: InputProps) => {
-  const isError = formik.touched[name] && formik.errors[name] ? true : false
+  const [isFocused, setIsFocused] = useState<boolean>(false)
+
+  const handleFocus = () => {
+    setIsFocused(true)
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    setIsFocused(false)
+    formik.handleBlur(e)
+  }
+
+  const isError =
+    formik.touched[name] && formik.errors[name] && !isFocused ? true : false
 
   return (
     <StyledContainer>
@@ -29,8 +42,10 @@ export const Input = ({
         name={name}
         type={type}
         onChange={formik.handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         value={formik.values[name] as any}
-        isError={isError}
+        $isError={isError}
       />
 
       {isError ? <ErrorText>Error</ErrorText> : null}
@@ -54,17 +69,18 @@ const StyledLabel = styled.label`
   font-family: 'Roboto_600Bold';
 `
 
-const StyledInput = styled.input<{ isError: boolean }>`
+const StyledInput = styled.input<{ $isError: boolean }>`
   width: 100%;
   padding: 10px;
   border: 1px solid
-    ${({ theme, isError }) => (isError ? 'red' : theme.colors.boxOutlineGrey)};
+    ${({ theme, $isError }) => ($isError ? 'red' : theme.colors.boxOutlineGrey)};
   border-radius: 4px;
   margin-top: 4px;
 
   &:focus {
-    border-color: ${({ theme }) => theme.colors.black};
-    outline: none; // Optional: Remove the default focus outline
+    border-color: ${({ theme, $isError }) =>
+      $isError ? 'red' : theme.colors.black};
+    outline: none;
   }
 `
 
