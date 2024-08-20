@@ -3,7 +3,7 @@ import { SecondaryButton } from './button/navigateToButtons/SecondaryButton'
 import { CustomButton } from './button/navigateToButtons/CustomButton'
 import { Input } from './formElements/Input'
 import { TextArea } from './formElements/TextArea'
-import { SubmitButton } from './button/formSubmitButtons/SubmitButton'
+import { FormButton } from './button/formSubmitButtons/FormButton'
 
 export {
   PrimaryButton,
@@ -11,5 +11,5 @@ export {
   CustomButton,
   Input,
   TextArea,
-  SubmitButton,
+  FormButton,
 }

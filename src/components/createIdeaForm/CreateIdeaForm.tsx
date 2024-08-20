@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { LightBulbOutline } from '../../assets/images/svg'
-import { Input, SubmitButton, TextArea } from '../../ui'
+import { Input, FormButton, TextArea } from '../../ui'
 import { useCreateIdeaFormik } from './hooks/useCreateIdeaFormik'
 
 export const CreateIdeaForm = () => {
@@ -8,7 +8,7 @@ export const CreateIdeaForm = () => {
 
   return (
     <StyledContainer>
-      <StyledForm onSubmit={formik.handleSubmit}>
+      <StyledForm role="form" onSubmit={formik.handleSubmit}>
         <StyledImage as={LightBulbOutline} />
 
         <StyledTitle>Create an Idea</StyledTitle>
@@ -39,10 +39,11 @@ export const CreateIdeaForm = () => {
           labelText={'Confidence Level (1-5 stars)'}
         />
 
-        <SubmitButton
+        <FormButton
           disabled={formik.isSubmitting || !formik.isValid}
           text={'Submit'}
-          onClick={formik.handleSubmit}
+          type={'submit'}
+          data-testid="submit-button"
         />
       </StyledForm>
     </StyledContainer>

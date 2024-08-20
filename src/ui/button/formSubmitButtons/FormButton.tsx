@@ -2,17 +2,24 @@ import styled from 'styled-components'
 
 interface ButtonProps {
   text: string
-  onClick: () => void
   disabled?: boolean
+  'data-testid'?: string
+  type: 'submit' | 'reset'
 }
 
-export const SubmitButton = ({ text, onClick, disabled }: ButtonProps) => {
+export const FormButton = ({
+  text,
+  disabled,
+  type,
+  'data-testid': dataTestId,
+}: ButtonProps) => {
   return (
-    <StyledButton disabled={disabled} onClick={onClick}>
+    <StyledButton disabled={disabled} data-testid={dataTestId} type={type}>
       {text}
     </StyledButton>
   )
 }
+
 const StyledButton = styled.button`
   display: flex;
   align-items: center;
