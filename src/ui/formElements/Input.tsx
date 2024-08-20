@@ -4,21 +4,13 @@ import styled from 'styled-components'
 
 interface InputProps {
   formik: FormikProps<any>
-  htmlFor: string
   id: string
   name: string
   type: string
   labelText: string
 }
 
-export const Input = ({
-  formik,
-  htmlFor,
-  id,
-  name,
-  type,
-  labelText,
-}: InputProps) => {
+export const Input = ({ formik, id, name, type, labelText }: InputProps) => {
   const [isFocused, setIsFocused] = useState<boolean>(false)
 
   const handleFocus = () => {
@@ -35,7 +27,7 @@ export const Input = ({
 
   return (
     <StyledContainer>
-      <StyledLabel htmlFor={htmlFor}>{labelText.toUpperCase()}</StyledLabel>
+      <StyledLabel htmlFor={id}>{labelText.toUpperCase()}</StyledLabel>
 
       <StyledInput
         id={id}

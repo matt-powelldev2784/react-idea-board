@@ -15,7 +15,6 @@ export const CreateIdeaForm = () => {
 
         <Input
           formik={formik}
-          htmlFor={'title'}
           id={'title'}
           name={'title'}
           type={'text'}
@@ -24,7 +23,6 @@ export const CreateIdeaForm = () => {
 
         <TextArea
           formik={formik}
-          htmlFor={'description'}
           id={'description'}
           name={'description'}
           labelText={'Description'}
@@ -32,7 +30,6 @@ export const CreateIdeaForm = () => {
 
         <Input
           formik={formik}
-          htmlFor={'numberOfStars'}
           id={'numberOfStars'}
           name={'numberOfStars'}
           type={'number'}

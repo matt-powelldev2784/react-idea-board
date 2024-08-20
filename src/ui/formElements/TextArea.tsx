@@ -4,19 +4,12 @@ import styled from 'styled-components'
 
 interface InputProps {
   formik: FormikProps<any>
-  htmlFor: string
   id: string
   name: string
   labelText: string
 }
 
-export const TextArea = ({
-  formik,
-  htmlFor,
-  id,
-  name,
-  labelText,
-}: InputProps) => {
+export const TextArea = ({ formik, id, name, labelText }: InputProps) => {
   const [isFocused, setIsFocused] = useState<boolean>(false)
 
   const handleFocus = () => {
@@ -33,7 +26,7 @@ export const TextArea = ({
 
   return (
     <StyledContainer>
-      <StyledLabel htmlFor={htmlFor}>{labelText.toUpperCase()}</StyledLabel>
+      <StyledLabel htmlFor={id}>{labelText.toUpperCase()}</StyledLabel>
 
       <StyledTextArea
         id={id}
