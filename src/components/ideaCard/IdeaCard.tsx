@@ -39,7 +39,7 @@ const StyledArticle = styled.article`
   height: 310px;
   background-color: #fff;
   border-radius: 18px;
-  border: 1.4px solid #c0c0c0;
+  border: 1.4px solid ${({ theme }) => theme.colors.boxOutlineGrey};
   padding-bottom: 16px;
   overflow: hidden;
 

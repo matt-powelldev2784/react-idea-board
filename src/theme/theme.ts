@@ -6,6 +6,7 @@ export const theme = {
     black: '#000000',
     buttonPrimary: '#337bcc',
     buttonSecondary: '#6e6f71',
+    boxOutlineGrey: '#c0c0c0',
   },
   breakpoints: {
     large: '768px',

@@ -3,5 +3,6 @@ import { Hero } from './home/hero/Hero'
 import { IdeaCard } from './ideaCard/IdeaCard'
 import { Features } from './home/features/Features'
 import { Footer } from './home/footer/Footer'
+import { CreateIdeaForm } from './createIdeaForm/CreateIdeaForm'
 
-export { NavigationBar, Hero, IdeaCard, Features, Footer }
+export { NavigationBar, Hero, IdeaCard, Features, Footer, CreateIdeaForm }
