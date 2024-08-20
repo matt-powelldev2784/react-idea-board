@@ -8,8 +8,12 @@ export const Ideas = () => {
   return (
     <StyledSection>
       <StyledTitleContainer>
-        <StyledTitle>Idea FACTORY</StyledTitle>
+        <StyledTitle>Idea List</StyledTitle>
+        <StyledText>
+          Unleash your creativity and share your groundbreaking ideas
+        </StyledText>
       </StyledTitleContainer>
+
       <StyledCardContainer>
         {ideas.map((idea) => (
           <IdeaCard
@@ -31,22 +35,34 @@ const StyledSection = styled.section`
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  padding: 20px;
-`
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    padding: 20px;
+  }
+`
 const StyledTitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  flex-direction: column;
   width: 100%;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
 `
 
 const StyledTitle = styled.p`
   font-size: 24px;
   font-family: 'Roboto_600Bold';
-  color: ${({ theme }) => theme.colors.primaryBlue};
-  margin-bottom: 20px;
+  color: ${({ theme }) => theme.colors.tertiaryLightBlue};
+  text-align: center;
+`
+
+const StyledText = styled.p`
+  font-size: 16px;
+  font-family: 'Roboto_400Regular';
+  color: ${({ theme }) => theme.colors.black};
+  text-align: center;
 `
 
 const StyledCardContainer = styled.div`
@@ -58,4 +74,7 @@ const StyledCardContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 1080px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+  }
 `
