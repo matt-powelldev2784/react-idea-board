@@ -69,7 +69,7 @@ const StyledNavLinks = styled.ul`
   padding: 0;
   margin: 0;
   padding: 15px;
-  background-color: ${({ theme }) => theme.colors.primaryBlue};
+  background-color: ${({ theme }) => theme.colors.buttonPrimary};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     display: none;
