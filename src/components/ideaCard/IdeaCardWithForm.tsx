@@ -5,6 +5,7 @@ import { Edit } from '../../assets/images/svg/index'
 import childWithIdeaImage from '../../assets/images/bitmap/kid_idea.png'
 import { IdeaCardT } from '../../types'
 import { handleEditIdea } from './utils/handleEditIdea'
+import { useNavigateToError } from './hooks/useNavigateToError'
 
 interface IdeaCardProps {
   id: string
@@ -24,11 +25,11 @@ export const IdeaCardWithForm = ({
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false)
   const [idea, setIdea] = useState<IdeaCardT | null>(null)
   const [isError, setIsError] = useState<boolean>(false)
+  useNavigateToError(isError)
   const handleEditIdeaPress = () =>
     handleEditIdea({ id, setIsFormVisible, setIdea, setIsError })
 
   console.log('idea', idea)
-  console.log('isError', isError)
 
   return (
     <StyledArticle>
