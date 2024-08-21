@@ -1,7 +1,7 @@
 import { format } from 'date-fns'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { addIdeaToStorage } from '../../../../../utils'
+import { updateIdeaInStorage } from '../../../../../utils'
 import { useNavigate } from 'react-router-dom'
 import { IdeaCardT } from '../../../../../types'
 
@@ -35,8 +35,9 @@ export const useEditIdeaFormilk = ({ idea }: EditIdeaFormilkProps) => {
 
       console.log('values', values)
 
-      addIdeaToStorage({ ...values })
-      navigate('/idea-list')
+      updateIdeaInStorage({ ...values })
+      navigate('/idea-list', { replace: true })
+      window.location.reload()
     },
   })
 

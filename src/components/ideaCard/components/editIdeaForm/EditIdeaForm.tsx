@@ -13,12 +13,10 @@ interface EditIdeaFormProps {
 export const EditIdeaForm = ({ idea }: EditIdeaFormProps) => {
   const formik = useEditIdeaFormilk({ idea })
 
-  console.log('idea', idea)
-
   return (
     <StyledForm role="form" onSubmit={formik.handleSubmit}>
       <StyledTextContainer>
-        <StyledEditButton onClick={() => {}}>
+        <StyledEditButton type="submit">
           <StyledEditIcon />
         </StyledEditButton>
 
