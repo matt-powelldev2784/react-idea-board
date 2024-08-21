@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useEditIdeaFormilk } from './hooks/useEditIdeaFormik'
 import { IdeaCardT } from '../../../../types'
-import { Edit } from '../../../../assets/images/svg'
+import { ArrowRight } from '../../../../assets/images/svg'
 import { TitleInput } from './components/TitleInput'
 import { DescriptionTextArea } from './components/DescriptionTextArea'
 import { NumberOfStarsInput } from './components/NumberOfStarsInput'
@@ -26,36 +26,6 @@ export const EditIdeaForm = ({ idea }: EditIdeaFormProps) => {
 
         <NumberOfStarsInput idea={idea} formik={formik} />
       </StyledTextContainer>
-
-      {/* <InputSmall
-        formik={formik}
-        id={'title'}
-        name={'title'}
-        type={'text'}
-        labelText={'Title'}
-      />
-
-      <TextArea
-        formik={formik}
-        id={'description'}
-        name={'description'}
-        labelText={'Description'}
-      />
-
-      <Input
-        formik={formik}
-        id={'numberOfStars'}
-        name={'numberOfStars'}
-        type={'number'}
-        labelText={'Confidence Level (1-5 stars)'}
-      />
-
-      <FormButton
-        disabled={formik.isSubmitting || !formik.isValid}
-        text={'Update'}
-        type={'submit'}
-        data-testid="submit-button"
-      /> */}
     </StyledForm>
   )
 }
@@ -85,7 +55,7 @@ const StyledEditButton = styled.button`
   top: 0;
 `
 
-const StyledEditIcon = styled(Edit)`
+const StyledEditIcon = styled(ArrowRight)`
   width: 35px;
   height: 35px;
   margin-right: 12px;
