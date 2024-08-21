@@ -62,7 +62,7 @@ const StyledSectoion = styled.section`
   height: fit-content;
   padding-top: 20px;
   padding-bottom: 30px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.backgroundLightBlue};
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 `

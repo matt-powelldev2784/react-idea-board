@@ -15,7 +15,7 @@ export const Footer = () => {
 }
 
 const StylefFooter = styled.footer`
-  background-color: ${({ theme }) => theme.colors.primaryBlue};
+  background-color: ${({ theme }) => theme.colors.darkBlue};
   width: 100%;
   height: 200px;
 `
