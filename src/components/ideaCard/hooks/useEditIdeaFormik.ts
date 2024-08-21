@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router-dom'
 import { IdeaCardT } from '../../../types'
 
 const validationSchema = Yup.object({
-  title: Yup.string().required('Title is required'),
+  title: Yup.string()
+    .required('Title is required')
+    .max(10, 'Title must be 20 characters or less'),
   description: Yup.string()
     .required('Description is required')
-    .max(140, 'Description must be at most 140 characters'),
+    .max(140, 'Description must be 140 characters or less'),
   numberOfStars: Yup.number()
     .min(1, 'Number of stars must be at least between 1 and 5')
     .max(5, 'Number of stars must be at most between 1 and 5')
