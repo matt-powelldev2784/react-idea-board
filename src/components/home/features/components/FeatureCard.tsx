@@ -48,7 +48,7 @@ const StyledImage = styled.svg`
 
 const StyledTitle = styled.h3`
   font-size: 20px;
-  color: ${({ theme }) => theme.colors.tertiaryLightBlue};
+  color: ${({ theme }) => theme.colors.primaryBlue};
   font-weight: 600;
   text-align: center;
 `
@@ -56,7 +56,7 @@ const StyledTitle = styled.h3`
 const StyledDescription = styled.p`
   width: 95%;
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.primaryDarkBlue};
+  color: ${({ theme }) => theme.colors.black};
   text-align: center;
   padding: 0;
 

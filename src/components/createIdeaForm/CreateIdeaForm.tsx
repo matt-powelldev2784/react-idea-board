@@ -55,11 +55,12 @@ const StyledContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  background-color: ${({ theme }) => theme.colors.backgroundLightBlue};
 `
 
 const StyledForm = styled.form`
   width: 90%;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.backgroundLightBlue};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,9 +81,15 @@ const StyledForm = styled.form`
 `
 
 const StyledImage = styled.div`
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   padding-top: 20px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 150px;
+    height: 150px;
+    padding-top: 20px;
+  }
 `
 
 const StyledTitle = styled.h1`
