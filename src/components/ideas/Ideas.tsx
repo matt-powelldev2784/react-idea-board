@@ -31,17 +31,20 @@ export const Ideas = () => {
 
 const StyledSection = styled.section`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.backgroundLightBlue};
-  height: 100%;
   min-height: 100vh;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `
 const StyledTitleContainer = styled.div`
@@ -49,7 +52,8 @@ const StyledTitleContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: fit-content;
+  margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 15px;
   margin-right: 15px;
@@ -58,7 +62,7 @@ const StyledTitleContainer = styled.div`
 const StyledTitle = styled.p`
   font-size: 24px;
   font-family: 'Roboto_600Bold';
-  color: ${({ theme }) => theme.colors.tertiaryLightBlue};
+  color: ${({ theme }) => theme.colors.darkBlue};
   text-align: center;
 `
 
