@@ -1,9 +1,9 @@
 import { format } from 'date-fns'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { addIdeaToStorage } from '../../../utils'
+import { addIdeaToStorage } from '../../../../../utils'
 import { useNavigate } from 'react-router-dom'
-import { IdeaCardT } from '../../../types'
+import { IdeaCardT } from '../../../../../types'
 
 const validationSchema = Yup.object({
   title: Yup.string()

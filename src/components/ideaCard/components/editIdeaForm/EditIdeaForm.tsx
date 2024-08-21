@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useEditIdeaFormilk } from '../../hooks/useEditIdeaFormik'
+import { useEditIdeaFormilk } from './hooks/useEditIdeaFormik'
 import { IdeaCardT } from '../../../../types'
 import { Edit } from '../../../../assets/images/svg'
 import { TitleInput } from './components/TitleInput'
