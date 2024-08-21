@@ -31,11 +31,14 @@ export const useCreateIdeaFormik = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      formik.setFieldValue('lastUpdated', format(new Date(), 'dd-MM-yy HH:mm'))
+      const updatedValues = {
+        ...values,
+        lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
+      }
 
-      console.log('values', values)
+      console.log('updatedValues', updatedValues)
 
-      addIdeaToStorage({ ...values })
+      addIdeaToStorage({ ...updatedValues })
       navigate('/idea-list')
     },
   })

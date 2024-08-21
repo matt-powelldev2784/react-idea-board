@@ -30,12 +30,15 @@ export const useEditIdeaFormilk = ({ idea }: EditIdeaFormilkProps) => {
       ...idea,
     },
     validationSchema,
-    onSubmit: (values) => {
-      formik.setFieldValue('lastUpdated', format(new Date(), 'dd-MM-yy HH:mm'))
+    onSubmit: async (values) => {
+      const updatedValues = {
+        ...values,
+        lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
+      }
 
-      console.log('values', values)
+      console.log('updatedValues', updatedValues)
 
-      updateIdeaInStorage({ ...values })
+      updateIdeaInStorage({ ...updatedValues })
       navigate('/idea-list', { replace: true })
       window.location.reload()
     },
