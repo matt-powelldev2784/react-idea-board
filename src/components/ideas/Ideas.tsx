@@ -38,6 +38,7 @@ const StyledSection = styled.section`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.backgroundLightBlue};
   min-height: 100vh;
+  padding-bottom: 60px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     flex-direction: column;
