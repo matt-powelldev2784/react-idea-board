@@ -1,51 +1,58 @@
-import { FormikProps } from 'formik'
-import { IdeaCardT } from '../../../../../types'
 import styled from 'styled-components'
+import { IdeaCardT } from '../../../../../types'
 import { useState } from 'react'
+import { FormikProps } from 'formik'
 
-interface TitleInputProps {
+interface DescriptionTextAreaProps {
   idea: IdeaCardT
   formik: FormikProps<any>
 }
 
-export const TitleInput = ({ idea, formik }: TitleInputProps) => {
+export const DescriptionTextArea = ({
+  idea,
+  formik,
+}: DescriptionTextAreaProps) => {
   const [isFocused, setIsFocused] = useState<boolean>(false)
 
   const handleFocus = () => {
     setIsFocused(true)
   }
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     setIsFocused(false)
     formik.handleBlur(e)
   }
 
   const isError =
-    formik.touched.title && formik.errors.title && !isFocused ? true : false
+    formik.touched.description && formik.errors.description && !isFocused
+      ? true
+      : false
 
   return (
-    <StyledTitleInput
+    <StyledDescriptionTextArea
       id={idea.key}
-      name={'title'}
-      type={'text'}
+      name={'description'}
       onChange={formik.handleChange}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      value={formik.values.title as any}
+      value={formik.values.description as any}
       $isError={isError}
-      placeholder="Title"
+      placeholder="Description"
     />
   )
 }
 
-const StyledTitleInput = styled.input<{ $isError: boolean }>`
-  font-size: 18px;
-  font-family: 'Roboto_600Bold';
+const StyledDescriptionTextArea = styled.textarea<{ $isError: boolean }>`
+  position: relative;
+  height: 110px;
+  font-size: 14px;
+  font-family: 'Roboto_400Regular';
   padding-left: 4px;
   margin: 0;
+  margin-right: 52px;
   margin-left: 16px;
   padding-right: 16px;
-  margin-right: 52px;
+  color: #6e6f71;
   border: 1px solid
     ${({ theme, $isError }) => ($isError ? 'red' : theme.colors.boxOutlineGrey)};
 

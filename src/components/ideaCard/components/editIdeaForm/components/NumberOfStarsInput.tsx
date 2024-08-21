@@ -8,7 +8,7 @@ interface TitleInputProps {
   formik: FormikProps<any>
 }
 
-export const TitleInput = ({ idea, formik }: TitleInputProps) => {
+export const NumberOfStarsInput = ({ idea, formik }: TitleInputProps) => {
   const [isFocused, setIsFocused] = useState<boolean>(false)
 
   const handleFocus = () => {
@@ -21,29 +21,30 @@ export const TitleInput = ({ idea, formik }: TitleInputProps) => {
   }
 
   const isError =
-    formik.touched.title && formik.errors.title && !isFocused ? true : false
+    formik.touched.numberOfStars && formik.errors.numberOfStars && !isFocused
+      ? true
+      : false
 
   return (
-    <StyledTitleInput
+    <StyledStarsInput
       id={idea.key}
-      name={'title'}
-      type={'text'}
+      name={'numberOfStars'}
+      type={'number'}
       onChange={formik.handleChange}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      value={formik.values.title as any}
+      value={formik.values.numberOfStars as any}
       $isError={isError}
-      placeholder="Title"
     />
   )
 }
 
-const StyledTitleInput = styled.input<{ $isError: boolean }>`
+const StyledStarsInput = styled.input<{ $isError: boolean }>`
   font-size: 18px;
   font-family: 'Roboto_600Bold';
-  padding-left: 4px;
   margin: 0;
   margin-left: 16px;
+  padding-left: 8px;
   padding-right: 16px;
   margin-right: 52px;
   border: 1px solid

@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import { useEditIdeaFormilk } from '../../hooks/useEditIdeaFormik'
 import { IdeaCardT } from '../../../../types'
-import { Stars } from '../star/Stars'
 import { Edit } from '../../../../assets/images/svg'
 import { TitleInput } from './components/TitleInput'
+import { DescriptionTextArea } from './components/DescriptionTextArea'
+import { NumberOfStarsInput } from './components/NumberOfStarsInput'
 
 interface EditIdeaFormProps {
   idea: IdeaCardT
@@ -23,16 +24,10 @@ export const EditIdeaForm = ({ idea }: EditIdeaFormProps) => {
 
         <TitleInput idea={idea} formik={formik} />
 
-        <StyledDescription>{idea.description}</StyledDescription>
-      </StyledTextContainer>
+        <DescriptionTextArea idea={idea} formik={formik} />
 
-      <StyledFooterContainer>
-        <StyledFooterText>Last Updated: {idea.lastUpdated}</StyledFooterText>
-        <Stars
-          numberOfStars={idea.numberOfStars}
-          lastUpdated={idea.lastUpdated}
-        />
-      </StyledFooterContainer>
+        <NumberOfStarsInput idea={idea} formik={formik} />
+      </StyledTextContainer>
 
       {/* <InputSmall
         formik={formik}
@@ -78,7 +73,8 @@ const StyledTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 140px;
+  gap: 4px;
+  height: 170px;
   margin-top: 12px;
 `
 
@@ -97,40 +93,3 @@ const StyledEditIcon = styled(Edit)`
   margin-right: 12px;
 `
 
-const StyledDescription = styled.p`
-  position: relative;
-  font-size: 14px;
-  font-family: 'Roboto_400Regular';
-  margin: 0;
-  margin-right: 52px;
-  margin-top: 4px;
-  padding-left: 16px;
-  padding-right: 16px;
-  color: #6e6f71;
-  overflow: hidden;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  white-space: normal;
-  word-break: break-word;
-`
-
-const StyledFooterContainer = styled.div`
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 8px;
-`
-
-const StyledFooterText = styled.p`
-  font-size: 10px;
-  color: #6e6f71;
-  margin: 0;
-`

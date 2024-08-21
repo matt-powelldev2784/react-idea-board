@@ -140,7 +140,7 @@ const StyledDescription = styled.p`
   margin: 0;
   margin-right: 52px;
   margin-top: 4px;
-  padding-left: 16px;
+  margin-left: 16px;
   padding-right: 16px;
   color: #6e6f71;
   overflow: hidden;
