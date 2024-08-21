@@ -4,6 +4,7 @@ import { CustomButton } from './button/navigateToButtons/CustomButton'
 import { Input } from './formElements/Input'
 import { TextArea } from './formElements/TextArea'
 import { FormButton } from './button/formSubmitButtons/FormButton'
+import { InputSmall } from './formElements/InputSmall'
 
 export {
   PrimaryButton,
@@ -12,4 +13,5 @@ export {
   Input,
   TextArea,
   FormButton,
+  InputSmall,
 }

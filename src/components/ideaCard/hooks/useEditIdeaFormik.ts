@@ -3,7 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { addIdeaToStorage } from '../../../utils'
 import { useNavigate } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
+import { IdeaCardT } from '../../../types'
 
 const validationSchema = Yup.object({
   title: Yup.string().required('Title is required'),
@@ -16,16 +16,16 @@ const validationSchema = Yup.object({
     .required('Number of stars is required'),
 })
 
-export const useEditIdeaFormilk = () => {
+interface EditIdeaFormilkProps {
+  idea: IdeaCardT
+}
+
+export const useEditIdeaFormilk = ({ idea }: EditIdeaFormilkProps) => {
   const navigate = useNavigate()
 
   const formik = useFormik({
     initialValues: {
-      key: uuidv4(),
-      title: '',
-      description: '',
-      numberOfStars: 1,
-      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
+      ...idea,
     },
     validationSchema,
     onSubmit: (values) => {

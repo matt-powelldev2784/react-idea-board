@@ -1,0 +1,86 @@
+import { FormikProps } from 'formik'
+import { useState } from 'react'
+import styled from 'styled-components'
+
+interface InputSmallProps {
+  formik: FormikProps<any>
+  id: string
+  name: string
+  type: string
+  labelText: string
+}
+
+export const InputSmall = ({
+  formik,
+  id,
+  name,
+  type,
+  labelText,
+}: InputSmallProps) => {
+  const [isFocused, setIsFocused] = useState<boolean>(false)
+
+  const handleFocus = () => {
+    setIsFocused(true)
+  }
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    setIsFocused(false)
+    formik.handleBlur(e)
+  }
+
+  const isError =
+    formik.touched[name] && formik.errors[name] && !isFocused ? true : false
+
+  return (
+    <StyledContainer>
+      <StyledLabel htmlFor={id}>{labelText.toUpperCase()}</StyledLabel>
+
+      <StyledInput
+        id={id}
+        name={name}
+        type={type}
+        onChange={formik.handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        value={formik.values[name] as any}
+        $isError={isError}
+      />
+    </StyledContainer>
+  )
+}
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 50px;
+  padding-left: 8px;
+  padding-right: 8px;
+`
+
+const StyledLabel = styled.label`
+  position: absolute;
+  opacity: 0.5;
+  z-index: -1;
+  color: ${({ theme }) => theme.colors.textGrey};
+  margin: 0;
+  padding-left: 2px;
+  color: ${({ theme }) => theme.colors.primaryBlue};
+  font-size: 14px;
+  font-family: 'Roboto_600Bold';
+`
+
+const StyledInput = styled.input<{ $isError: boolean }>`
+  width: 100%;
+  padding: 4px;
+  border: 1px solid
+    ${({ theme, $isError }) => ($isError ? 'red' : theme.colors.boxOutlineGrey)};
+  border-radius: 4px;
+  margin-top: 4px;
+
+  &:focus {
+    border-color: ${({ theme, $isError }) =>
+      $isError ? 'red' : theme.colors.black};
+    outline: none;
+  }
+`

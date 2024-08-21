@@ -6,6 +6,7 @@ import childWithIdeaImage from '../../assets/images/bitmap/kid_idea.png'
 import { IdeaCardT } from '../../types'
 import { handleEditIdea } from './utils/handleEditIdea'
 import { useNavigateToError } from './hooks/useNavigateToError'
+import { EditIdeaForm } from './components/editIdeaForm/EditIdeaForm'
 
 interface IdeaCardProps {
   id: string
@@ -37,21 +38,26 @@ export const IdeaCardWithForm = ({
         <StyledImage src={childWithIdeaImage} alt="Child with idea" />
       </StyledImageContainer>
 
-      <StyledTextContainer>
-        <StyledEditButton onClick={handleEditIdeaPress}>
-          <StyledEditIcon />
-        </StyledEditButton>
+      {!isFormVisible ? (
+        <>
+          <StyledTextContainer>
+            <StyledEditButton onClick={handleEditIdeaPress}>
+              <StyledEditIcon />
+            </StyledEditButton>
 
-        {!isFormVisible ? <StyledTitle>{title}</StyledTitle> : null}
-        {!isFormVisible ? (
-          <StyledDescription>{description}</StyledDescription>
-        ) : null}
-      </StyledTextContainer>
+            <StyledTitle>{title}</StyledTitle>
 
-      <StyledFooterContainer>
-        <StyledFooterText>Last Updated: {lastUpdated}</StyledFooterText>
-        <Stars numberOfStars={numberOfStars} lastUpdated={lastUpdated} />
-      </StyledFooterContainer>
+            <StyledDescription>{description}</StyledDescription>
+          </StyledTextContainer>
+
+          <StyledFooterContainer>
+            <StyledFooterText>Last Updated: {lastUpdated}</StyledFooterText>
+            <Stars numberOfStars={numberOfStars} lastUpdated={lastUpdated} />
+          </StyledFooterContainer>
+        </>
+      ) : null}
+
+      {isFormVisible && idea ? <EditIdeaForm idea={idea} /> : null}
     </StyledArticle>
   )
 }
@@ -117,7 +123,7 @@ const StyledTitle = styled.p`
   font-size: 18px;
   font-family: 'Roboto_600Bold';
   margin: 0;
-  padding-left: 16px;
+  margin-left: 16px;
   padding-right: 16px;
   margin-right: 52px;
   text-overflow: ellipsis;
