@@ -30,8 +30,6 @@ export const IdeaCardWithForm = ({
   const handleEditIdeaPress = () =>
     handleEditIdea({ id, setIsFormVisible, setIdea, setIsError })
 
-  console.log('idea', idea)
-
   return (
     <StyledArticle>
       <StyledImageContainer>
