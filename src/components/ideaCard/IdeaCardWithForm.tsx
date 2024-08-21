@@ -3,8 +3,11 @@ import { Stars } from './components/star/Stars'
 import { useState } from 'react'
 import { Edit } from '../../assets/images/svg/index'
 import childWithIdeaImage from '../../assets/images/bitmap/kid_idea.png'
+import { IdeaCardT } from '../../types'
+import { handleEditIdea } from './utils/handleEditIdea'
 
 interface IdeaCardProps {
+  id: string
   title: string
   description: string
   lastUpdated: string
@@ -12,14 +15,20 @@ interface IdeaCardProps {
 }
 
 export const IdeaCardWithForm = ({
+  id,
   title,
   description,
   lastUpdated,
   numberOfStars,
 }: IdeaCardProps) => {
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false)
-  const toggleFormIsVisible = () => setIsFormVisible((prev) => !prev)
-  console.log('isFormVisible', isFormVisible)
+  const [idea, setIdea] = useState<IdeaCardT | null>(null)
+  const [isError, setIsError] = useState<boolean>(false)
+  const handleEditIdeaPress = () =>
+    handleEditIdea({ id, setIsFormVisible, setIdea, setIsError })
+
+  console.log('idea', idea)
+  console.log('isError', isError)
 
   return (
     <StyledArticle>
@@ -28,12 +37,14 @@ export const IdeaCardWithForm = ({
       </StyledImageContainer>
 
       <StyledTextContainer>
-        <StyledEditButton onClick={toggleFormIsVisible}>
+        <StyledEditButton onClick={handleEditIdeaPress}>
           <StyledEditIcon />
         </StyledEditButton>
 
-        <StyledTitle>{title}</StyledTitle>
-        <StyledDescription>{description}</StyledDescription>
+        {!isFormVisible ? <StyledTitle>{title}</StyledTitle> : null}
+        {!isFormVisible ? (
+          <StyledDescription>{description}</StyledDescription>
+        ) : null}
       </StyledTextContainer>
 
       <StyledFooterContainer>

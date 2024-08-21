@@ -18,6 +18,7 @@ export const Ideas = () => {
         {ideas.map((idea) => (
           <IdeaCardWithForm
             key={idea.key}
+            id={idea.key}
             title={idea.title}
             description={idea.description}
             numberOfStars={idea.numberOfStars}
