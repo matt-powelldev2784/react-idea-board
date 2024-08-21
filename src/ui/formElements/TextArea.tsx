@@ -73,6 +73,8 @@ const StyledTextArea = styled.textarea<{ $isError: boolean }>`
     ${({ theme, $isError }) => ($isError ? 'red' : theme.colors.boxOutlineGrey)};
   border-radius: 4px;
   margin-top: 4px;
+  font-family: 'Roboto_400Regular';
+  font-size: 14px;
 
   &:focus {
     border-color: ${({ theme, $isError }) =>
