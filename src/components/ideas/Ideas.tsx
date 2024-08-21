@@ -31,10 +31,14 @@ export const Ideas = () => {
 
 const StyledSection = styled.section`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.backgroundLightBlue};
+  height: 100%;
+  min-height: 100vh;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
     padding: 20px;
@@ -68,7 +72,7 @@ const StyledText = styled.p`
 const StyledCardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
