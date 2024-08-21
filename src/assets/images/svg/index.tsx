@@ -5,6 +5,7 @@ import { ReactComponent as InfoIcon } from '../../images/svg/info.svg'
 import { ReactComponent as TagIcon } from '../../images/svg/tag.svg'
 import { ReactComponent as CharacterIcon } from '../../images/svg/a.svg'
 import { ReactComponent as LightBulbOutline } from '../../images/svg/light_bulb_outline.svg'
+import { ReactComponent as Edit } from '../../images/svg/edit.svg'
 
 export {
   BurgerImage,
@@ -14,4 +15,5 @@ export {
   TagIcon,
   CharacterIcon,
   LightBulbOutline,
+  Edit,
 }

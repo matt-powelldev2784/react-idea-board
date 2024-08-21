@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { getIdeasFromStorage } from '../../utils'
-import { IdeaCard } from '../index'
+import { IdeaCardWithForm } from '../index'
 
 export const Ideas = () => {
   const ideas = getIdeasFromStorage()
@@ -16,7 +16,7 @@ export const Ideas = () => {
 
       <StyledCardContainer>
         {ideas.map((idea) => (
-          <IdeaCard
+          <IdeaCardWithForm
             key={idea.key}
             title={idea.title}
             description={idea.description}
