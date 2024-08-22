@@ -8,6 +8,7 @@ import { ReactComponent as LightBulbOutline } from '../../images/svg/light_bulb_
 import { ReactComponent as Edit } from '../../images/svg/edit.svg'
 import { ReactComponent as Error } from '../../images/svg/error.svg'
 import { ReactComponent as ArrowRight } from '../../images/svg/arrow_right.svg'
+import { ReactComponent as Cross } from '../../images/svg//cross.svg'
 
 export {
   BurgerImage,
@@ -20,4 +21,5 @@ export {
   Edit,
   Error,
   ArrowRight,
+  Cross,
 }
