@@ -7,6 +7,7 @@ import { IdeaCardT } from '../../types'
 import { handleEditIdea } from './utils/handleEditIdea'
 import { useNavigateToError } from './hooks/useNavigateToError'
 import { EditIdeaForm } from './components/editIdeaForm/EditIdeaForm'
+import { useHandleDeleteIdea } from './hooks/useHandleDeleteIdea'
 
 interface IdeaCardProps {
   id: string
@@ -29,11 +30,12 @@ export const IdeaCardWithForm = ({
   useNavigateToError(isError)
   const handleEditIdeaPress = () =>
     handleEditIdea({ id, setIsFormVisible, setIdea, setIsError })
+  const { handleDeletePress } = useHandleDeleteIdea(id)
 
   return (
     <StyledArticle>
       <StyledImageContainer>
-        <StyledDeleteButton onClick={handleEditIdeaPress}>
+        <StyledDeleteButton onClick={handleDeletePress}>
           <StyledCrossIcon as={CrossIcon} />
         </StyledDeleteButton>
 
