@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Stars } from './components/star/Stars'
 import { useState } from 'react'
-import { Edit } from '../../assets/images/svg/index'
+import { EditIcon, CrossIcon } from '../../assets/images/svg'
 import childWithIdeaImage from '../../assets/images/bitmap/kid_idea.png'
 import { IdeaCardT } from '../../types'
 import { handleEditIdea } from './utils/handleEditIdea'
@@ -33,6 +33,10 @@ export const IdeaCardWithForm = ({
   return (
     <StyledArticle>
       <StyledImageContainer>
+        <StyledCrossButton onClick={handleEditIdeaPress}>
+          <StyledCrossIcon as={CrossIcon} />
+        </StyledCrossButton>
+
         <StyledImage src={childWithIdeaImage} alt="Child with idea" />
       </StyledImageContainer>
 
@@ -40,7 +44,7 @@ export const IdeaCardWithForm = ({
         <>
           <StyledTextContainer>
             <StyledEditButton onClick={handleEditIdeaPress}>
-              <StyledEditIcon />
+              <StyledEditIcon as={EditIcon} />
             </StyledEditButton>
 
             <StyledTitle>{title}</StyledTitle>
@@ -86,11 +90,30 @@ const StyledImageContainer = styled.div`
     rgba(255, 0, 150, 0.5),
     rgba(0, 204, 255, 0.5)
   );
+  z-index: 0;
 `
 const StyledImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+`
+
+const StyledCrossButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 999;
+`
+const StyledCrossIcon = styled.svg`
+  width: 13px;
+  height: 13px;
+  margin-top: 8px;
+  margin-right: 12px;
+  z-index: 999;
+  opacity: 0.8;
 `
 
 const StyledTextContainer = styled.div`
@@ -109,9 +132,10 @@ const StyledEditButton = styled.button`
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 999;
 `
 
-const StyledEditIcon = styled(Edit)`
+const StyledEditIcon = styled.svg`
   width: 35px;
   height: 35px;
   margin-right: 12px;
