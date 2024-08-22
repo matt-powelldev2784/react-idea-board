@@ -39,8 +39,9 @@ export const useEditIdeaFormilk = ({ idea }: EditIdeaFormilkProps) => {
       console.log('updatedValues', updatedValues)
 
       updateIdeaInStorage({ ...updatedValues })
-      navigate('/idea-list', { replace: true })
-      window.location.reload()
+      navigate('/blank')
+      setTimeout(() => navigate('/idea-list', { replace: true }), 20)
+   
     },
   })
 

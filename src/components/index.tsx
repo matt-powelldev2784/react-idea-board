@@ -7,6 +7,7 @@ import { Footer } from './home/footer/Footer'
 import { CreateIdeaForm } from './createIdeaForm/CreateIdeaForm'
 import { Ideas } from './ideas/Ideas'
 import { ErrorPage } from './pages/Error'
+import { Blank } from './pages/Blank'
 
 export {
   NavigationBar,
@@ -18,4 +19,5 @@ export {
   CreateIdeaForm,
   Ideas,
   ErrorPage,
+  Blank,
 }
