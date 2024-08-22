@@ -33,9 +33,9 @@ export const IdeaCardWithForm = ({
   return (
     <StyledArticle>
       <StyledImageContainer>
-        <StyledCrossButton onClick={handleEditIdeaPress}>
+        <StyledDeleteButton onClick={handleEditIdeaPress}>
           <StyledCrossIcon as={CrossIcon} />
-        </StyledCrossButton>
+        </StyledDeleteButton>
 
         <StyledImage src={childWithIdeaImage} alt="Child with idea" />
       </StyledImageContainer>
@@ -98,7 +98,7 @@ const StyledImage = styled.img`
   object-fit: cover;
 `
 
-const StyledCrossButton = styled.button`
+const StyledDeleteButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
