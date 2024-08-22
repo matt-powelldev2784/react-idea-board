@@ -84,7 +84,6 @@ const StyledCardContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 1080px;
-  min-height: 100vh;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
   }
