@@ -2,13 +2,19 @@ import styled from 'styled-components'
 import { useEditIdeaFormilk } from './hooks/useEditIdeaFormik'
 import { IdeaCardT } from '../../../../types'
 import { FormButton, Input, TextArea } from '../../../../ui'
+import { useNavigate } from 'react-router-dom'
 
 interface EditIdeaFormProps {
   idea: IdeaCardT
 }
 
 export const EditIdeaForm = ({ idea }: EditIdeaFormProps) => {
+  const navigate = useNavigate()
   const formik = useEditIdeaFormilk({ idea })
+  const handleCancelEditIdea = () => {
+    navigate('/blank')
+    setTimeout(() => navigate('/idea-list', { replace: true }), 20)
+  }
 
   return (
     <StyledForm role="form" onSubmit={formik.handleSubmit}>
@@ -42,6 +48,7 @@ export const EditIdeaForm = ({ idea }: EditIdeaFormProps) => {
             text={'Cancel'}
             type={'reset'}
             data-testid="submit-button"
+            resetFormFunction={handleCancelEditIdea}
           />
 
           <FormButton

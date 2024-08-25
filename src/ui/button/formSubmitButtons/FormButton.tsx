@@ -5,16 +5,29 @@ interface ButtonProps {
   disabled?: boolean
   'data-testid'?: string
   type: 'submit' | 'reset'
+  resetFormFunction?: () => void
 }
 
 export const FormButton = ({
   text,
   disabled,
   type,
+  resetFormFunction,
   'data-testid': dataTestId,
 }: ButtonProps) => {
+  const handleResetForm = () => {
+    if (type === 'reset' && resetFormFunction) {
+      resetFormFunction()
+    }
+  }
+
   return (
-    <StyledButton disabled={disabled} data-testid={dataTestId} type={type}>
+    <StyledButton
+      disabled={disabled}
+      data-testid={dataTestId}
+      type={type}
+      onClick={handleResetForm}
+    >
       {text}
     </StyledButton>
   )
