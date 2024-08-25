@@ -1,9 +1,9 @@
 import { format } from 'date-fns'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { addIdeaToStorage } from '../../../utils'
+import { updateIdeaInStorage } from '../../../../../utils'
 import { useNavigate } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
+import { IdeaCardT } from '../../../../../types'
 
 const validationSchema = Yup.object({
   title: Yup.string()
@@ -18,19 +18,19 @@ const validationSchema = Yup.object({
     .required('Number of stars is required'),
 })
 
-export const useCreateIdeaFormik = () => {
+interface EditIdeaFormilkProps {
+  idea: IdeaCardT
+}
+
+export const useEditIdeaFormilk = ({ idea }: EditIdeaFormilkProps) => {
   const navigate = useNavigate()
 
   const formik = useFormik({
     initialValues: {
-      key: uuidv4(),
-      title: '',
-      description: '',
-      numberOfStars: 1,
-      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
+      ...idea,
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const updatedValues = {
         ...values,
         lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
@@ -38,8 +38,10 @@ export const useCreateIdeaFormik = () => {
 
       console.log('updatedValues', updatedValues)
 
-      addIdeaToStorage({ ...updatedValues })
-      navigate('/idea-list')
+      updateIdeaInStorage({ ...updatedValues })
+      navigate('/blank')
+      setTimeout(() => navigate('/idea-list', { replace: true }), 20)
+   
     },
   })
 

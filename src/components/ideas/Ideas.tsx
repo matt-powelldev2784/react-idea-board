@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { getIdeasFromStorage } from '../../utils'
-import { IdeaCard } from '../index'
+import { IdeaCardWithForm } from '../index'
 
 export const Ideas = () => {
   const ideas = getIdeasFromStorage()
@@ -16,8 +16,9 @@ export const Ideas = () => {
 
       <StyledCardContainer>
         {ideas.map((idea) => (
-          <IdeaCard
+          <IdeaCardWithForm
             key={idea.key}
+            id={idea.key}
             title={idea.title}
             description={idea.description}
             numberOfStars={idea.numberOfStars}
@@ -31,13 +32,21 @@ export const Ideas = () => {
 
 const StyledSection = styled.section`
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+  background-color: ${({ theme }) => theme.colors.backgroundLightBlue};
+  min-height: 100vh;
+  padding-bottom: 60px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 `
 const StyledTitleContainer = styled.div`
@@ -45,7 +54,8 @@ const StyledTitleContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: fit-content;
+  margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 15px;
   margin-right: 15px;
@@ -54,7 +64,7 @@ const StyledTitleContainer = styled.div`
 const StyledTitle = styled.p`
   font-size: 24px;
   font-family: 'Roboto_600Bold';
-  color: ${({ theme }) => theme.colors.tertiaryLightBlue};
+  color: ${({ theme }) => theme.colors.darkBlue};
   text-align: center;
 `
 
@@ -68,7 +78,7 @@ const StyledText = styled.p`
 const StyledCardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;

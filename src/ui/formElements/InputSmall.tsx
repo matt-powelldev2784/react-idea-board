@@ -2,21 +2,28 @@ import { FormikProps } from 'formik'
 import { useState } from 'react'
 import styled from 'styled-components'
 
-interface InputProps {
+interface InputSmallProps {
   formik: FormikProps<any>
   id: string
   name: string
+  type: string
   labelText: string
 }
 
-export const TextArea = ({ formik, id, name, labelText }: InputProps) => {
+export const InputSmall = ({
+  formik,
+  id,
+  name,
+  type,
+  labelText,
+}: InputSmallProps) => {
   const [isFocused, setIsFocused] = useState<boolean>(false)
 
   const handleFocus = () => {
     setIsFocused(true)
   }
 
-  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsFocused(false)
     formik.handleBlur(e)
   }
@@ -28,19 +35,16 @@ export const TextArea = ({ formik, id, name, labelText }: InputProps) => {
     <StyledContainer>
       <StyledLabel htmlFor={id}>{labelText.toUpperCase()}</StyledLabel>
 
-      <StyledTextArea
+      <StyledInput
         id={id}
         name={name}
+        type={type}
         onChange={formik.handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
         value={formik.values[name] as any}
         $isError={isError}
       />
-
-      {isError ? (
-        <ErrorText>{formik.errors[name]?.toString()}</ErrorText>
-      ) : null}
     </StyledContainer>
   )
 }
@@ -49,14 +53,15 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 170px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    height: 130px;
-  }
+  min-height: 50px;
+  padding-left: 8px;
+  padding-right: 8px;
 `
 
 const StyledLabel = styled.label`
+  position: absolute;
+  opacity: 0.5;
+  z-index: -1;
   color: ${({ theme }) => theme.colors.textGrey};
   margin: 0;
   padding-left: 2px;
@@ -65,32 +70,17 @@ const StyledLabel = styled.label`
   font-family: 'Roboto_600Bold';
 `
 
-const StyledTextArea = styled.textarea<{ $isError: boolean }>`
+const StyledInput = styled.input<{ $isError: boolean }>`
   width: 100%;
-  height: 120px;
-  padding: 10px;
+  padding: 4px;
   border: 1px solid
     ${({ theme, $isError }) => ($isError ? 'red' : theme.colors.boxOutlineGrey)};
   border-radius: 4px;
   margin-top: 4px;
-  font-family: 'Roboto_400Regular';
-  font-size: 14px;
 
   &:focus {
     border-color: ${({ theme, $isError }) =>
       $isError ? 'red' : theme.colors.black};
     outline: none;
   }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    height: 80px;
-  }
-`
-
-const ErrorText = styled.p`
-  color: red;
-  margin: 0;
-  padding-left: 2px;
-  font-size: 14px;
-  text-align: center;
 `
