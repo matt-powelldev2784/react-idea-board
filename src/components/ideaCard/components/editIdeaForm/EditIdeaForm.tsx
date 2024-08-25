@@ -44,7 +44,6 @@ export const EditIdeaForm = ({ idea }: EditIdeaFormProps) => {
 
         <StyledButtonConatiner>
           <FormButton
-            disabled={formik.isSubmitting || !formik.isValid}
             text={'Cancel'}
             type={'reset'}
             data-testid="submit-button"
