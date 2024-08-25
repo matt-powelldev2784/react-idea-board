@@ -8,7 +8,7 @@ import { IdeaCardT } from '../../../../../types'
 const validationSchema = Yup.object({
   title: Yup.string()
     .required('Title is required')
-    .max(10, 'Title must be 20 characters or less'),
+    .max(20, 'Title must be 20 characters or less'),
   description: Yup.string()
     .required('Description is required')
     .max(140, 'Description must be 140 characters or less'),
