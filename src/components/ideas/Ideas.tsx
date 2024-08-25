@@ -31,20 +31,16 @@ export const Ideas = () => {
 }
 
 const StyledSection = styled.section`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
+  position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-color: ${({ theme }) => theme.colors.backgroundLightBlue};
   min-height: 100vh;
   padding-bottom: 60px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -59,6 +55,7 @@ const StyledTitleContainer = styled.div`
   margin-bottom: 20px;
   margin-left: 15px;
   margin-right: 15px;
+  width: 100%;
 `
 
 const StyledTitle = styled.p`
@@ -84,6 +81,7 @@ const StyledCardContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   max-width: 1080px;
+  height: fit-content;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
   }
