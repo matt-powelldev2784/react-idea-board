@@ -2,9 +2,17 @@ import styled from 'styled-components'
 import { LightBulbOutline } from '../../assets/images/svg'
 import { Input, FormButton, TextArea } from '../../ui'
 import { useCreateIdeaFormik } from './hooks/useCreateIdeaFormik'
+import { useEffect, useRef } from 'react'
 
 export const CreateIdeaForm = () => {
   const formik = useCreateIdeaFormik()
+  const titleInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (titleInputRef.current) {
+      titleInputRef.current.focus()
+    }
+  }, [])
 
   return (
     <StyledContainer>
@@ -19,6 +27,7 @@ export const CreateIdeaForm = () => {
           name={'title'}
           type={'text'}
           labelText={'Title'}
+          ref={titleInputRef}
         />
 
         <TextArea

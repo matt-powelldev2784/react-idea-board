@@ -1,5 +1,5 @@
 import { FormikProps } from 'formik'
-import { useState } from 'react'
+import { forwardRef, useState } from 'react'
 import styled from 'styled-components'
 
 interface InputProps {
@@ -10,42 +10,45 @@ interface InputProps {
   labelText: string
 }
 
-export const Input = ({ formik, id, name, type, labelText }: InputProps) => {
-  const [isFocused, setIsFocused] = useState<boolean>(false)
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ formik, id, name, type, labelText }, ref) => {
+    const [isFocused, setIsFocused] = useState<boolean>(false)
 
-  const handleFocus = () => {
-    setIsFocused(true)
+    const handleFocus = () => {
+      setIsFocused(true)
+    }
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      setIsFocused(false)
+      formik.handleBlur(e)
+    }
+
+    const isError =
+      formik.touched[name] && formik.errors[name] && !isFocused ? true : false
+
+    return (
+      <StyledContainer>
+        <StyledLabel htmlFor={id}>{labelText.toUpperCase()}</StyledLabel>
+
+        <StyledInput
+          id={id}
+          name={name}
+          type={type}
+          onChange={formik.handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          value={formik.values[name] as any}
+          $isError={isError}
+          ref={ref}
+        />
+
+        {isError ? (
+          <ErrorText>{formik.errors[name]?.toString()}</ErrorText>
+        ) : null}
+      </StyledContainer>
+    )
   }
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    setIsFocused(false)
-    formik.handleBlur(e)
-  }
-
-  const isError =
-    formik.touched[name] && formik.errors[name] && !isFocused ? true : false
-
-  return (
-    <StyledContainer>
-      <StyledLabel htmlFor={id}>{labelText.toUpperCase()}</StyledLabel>
-
-      <StyledInput
-        id={id}
-        name={name}
-        type={type}
-        onChange={formik.handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        value={formik.values[name] as any}
-        $isError={isError}
-      />
-
-      {isError ? (
-        <ErrorText>{formik.errors[name]?.toString()}</ErrorText>
-      ) : null}
-    </StyledContainer>
-  )
-}
+)
 
 const StyledContainer = styled.div`
   display: flex;
