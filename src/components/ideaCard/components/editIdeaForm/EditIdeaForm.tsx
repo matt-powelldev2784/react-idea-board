@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 import { useEditIdeaFormilk } from './hooks/useEditIdeaFormik'
 import { IdeaCardT } from '../../../../types'
-import { ArrowRight } from '../../../../assets/images/svg'
-import { TitleInput } from './components/TitleInput'
-import { DescriptionTextArea } from './components/DescriptionTextArea'
-import { NumberOfStarsInput } from './components/NumberOfStarsInput'
+import { FormButton, Input, TextArea } from '../../../../ui'
 
 interface EditIdeaFormProps {
   idea: IdeaCardT
@@ -16,15 +13,44 @@ export const EditIdeaForm = ({ idea }: EditIdeaFormProps) => {
   return (
     <StyledForm role="form" onSubmit={formik.handleSubmit}>
       <StyledTextContainer>
-        <StyledEditButton type="submit">
-          <StyledEditIcon />
-        </StyledEditButton>
+        <Input
+          formik={formik}
+          id={'title'}
+          name={'title'}
+          type={'text'}
+          labelText={'Title'}
+        />
 
-        <TitleInput idea={idea} formik={formik} />
+        <TextArea
+          formik={formik}
+          id={'description'}
+          name={'description'}
+          labelText={'Description'}
+        />
 
-        <DescriptionTextArea idea={idea} formik={formik} />
+        <Input
+          formik={formik}
+          id={'numberOfStars'}
+          name={'numberOfStars'}
+          type={'number'}
+          labelText={'Confidence Level (1-5 stars)'}
+        />
 
-        <NumberOfStarsInput idea={idea} formik={formik} />
+        <StyledButtonConatiner>
+          <FormButton
+            disabled={formik.isSubmitting || !formik.isValid}
+            text={'Cancel'}
+            type={'reset'}
+            data-testid="submit-button"
+          />
+
+          <FormButton
+            disabled={formik.isSubmitting || !formik.isValid}
+            text={'Submit'}
+            type={'submit'}
+            data-testid="submit-button"
+          />
+        </StyledButtonConatiner>
       </StyledTextContainer>
     </StyledForm>
   )
@@ -33,7 +59,7 @@ export const EditIdeaForm = ({ idea }: EditIdeaFormProps) => {
 const StyledForm = styled.form`
   position: relative;
   width: 100%;
-  height: 176px;
+  height: fit-content;
 `
 
 const StyledTextContainer = styled.div`
@@ -41,23 +67,16 @@ const StyledTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 4px;
-  height: 170px;
+  height: fit-content;
   margin-top: 12px;
-`
-
-const StyledEditButton = styled.button`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-  top: 0;
-`
-
-const StyledEditIcon = styled(ArrowRight)`
-  width: 35px;
-  height: 35px;
+  margin-left: 12px;
   margin-right: 12px;
 `
 
+const StyledButtonConatiner = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 12px;
+  margin-bottom: 12px;
+`

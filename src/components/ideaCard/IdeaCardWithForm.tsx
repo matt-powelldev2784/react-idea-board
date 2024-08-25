@@ -69,7 +69,7 @@ export const IdeaCardWithForm = ({
 const StyledArticle = styled.article`
   position: relative;
   width: 95%;
-  height: 340px;
+  height: fit-content;
   background-color: #fff;
   border-radius: 18px;
   border: 1.4px solid ${({ theme }) => theme.colors.boxOutlineGrey};
@@ -77,8 +77,6 @@ const StyledArticle = styled.article`
   overflow: hidden;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
-    width: 330px;
-    min-width: 330px;
   }
 `
 
@@ -97,7 +95,7 @@ const StyledImageContainer = styled.div`
 const StyledImage = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `
 
 const StyledDeleteButton = styled.button`

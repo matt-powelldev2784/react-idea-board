@@ -20,15 +20,17 @@ export const FormButton = ({
   )
 }
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{ type: 'submit' | 'reset' }>`
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   decoration: none;
-
   border-radius: 5px;
-  background-color: ${({ theme }) => theme.colors.buttonPrimary};
+  background-color: ${({ theme, type }) =>
+    type === 'submit'
+      ? theme.colors.buttonPrimary
+      : theme.colors.buttonSecondary};
   color: ${({ theme }) => theme.colors.secondaryWhite};
 
   font-size: 14px;
