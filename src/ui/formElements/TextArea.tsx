@@ -83,7 +83,7 @@ const StyleCharacterCount = styled.p`
   position: absolute;
   right: 5px;
   top: 3px;
-  color: red;
+  color: grey;
   padding-left: 2px;
   font-size: 14px;
   text-align: right;
