@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen, act, fireEvent } from '@testing-library/react'
 import { CreateIdeaForm } from './CreateIdeaForm'
 import { useCreateIdeaFormik } from './hooks/useCreateIdeaFormik'
 import { ThemeProvider } from 'styled-components'
@@ -11,12 +11,7 @@ const mockFormik = {
   handleSubmit: jest.fn(),
   handleChange: jest.fn(),
   handleBlur: jest.fn(),
-  values: {
-    title: '',
-    description: '',
-    numberOfStars: 1,
-    lastUpdated: '',
-  },
+  values: { title: '', description: '', numberOfStars: '' },
   errors: {},
   touched: {},
   isSubmitting: false,
@@ -24,29 +19,32 @@ const mockFormik = {
 }
 
 describe('CreateIdeaForm', () => {
-  const renderIdeaForm = () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <CreateIdeaForm />
-        </MemoryRouter>
-      </ThemeProvider>
-    )
+  const renderCreateIdeaForm = async () => {
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      render(
+        <ThemeProvider theme={theme}>
+          <MemoryRouter>
+            <CreateIdeaForm />
+          </MemoryRouter>
+        </ThemeProvider>
+      )
+    })
   }
 
   beforeEach(() => {
     ;(useCreateIdeaFormik as jest.Mock).mockReturnValue(mockFormik)
   })
 
-  test('should render the form', () => {
-    renderIdeaForm()
+  test('should render the form', async () => {
+    await renderCreateIdeaForm()
 
     expect(screen.getByText('Create an Idea')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument()
   })
 
-  test('should render input elements', () => {
-    renderIdeaForm()
+  test('should render input elements', async () => {
+    await renderCreateIdeaForm()
 
     expect(screen.getByLabelText('TITLE'.toUpperCase())).toBeInTheDocument()
     expect(screen.getByLabelText('DESCRIPTION')).toBeInTheDocument()
@@ -55,23 +53,34 @@ describe('CreateIdeaForm', () => {
     ).toBeInTheDocument()
   })
 
-  test('should call handleSubmit when the form is submitted', () => {
-    renderIdeaForm()
+  test('should call handleSubmit when the form is submitted', async () => {
+    await renderCreateIdeaForm()
 
     const form = screen.getByRole('form') as HTMLFormElement
 
-    fireEvent.submit(form)
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      fireEvent.submit(form)
+    })
 
     expect(mockFormik.handleSubmit).toHaveBeenCalled()
   })
 
-  // test('should update form values on input change', () => {
-  //   renderIdeaForm()
+  // test('it allows typing in the title input element', async () => {
+  //   await renderCreateIdeaForm()
 
-  //   const titleInput = screen.getByLabelText('TITLE')
-  //   fireEvent.change(titleInput, { target: { value: 'New Idea' } })
+  //   const titleInputElement = screen.getByLabelText(/TITLE/i)
+  //   const testValue = 'New Idea Title'
 
-  //   expect(mockFormik.handleChange).toHaveBeenCalled()
-  //   expect(titleInput).toHaveValue('New Idea')
+  //   // eslint-disable-next-line testing-library/no-unnecessary-act
+  //   await act(async () => {
+  //     fireEvent.change(titleInputElement, { target: { value: testValue } })
+  //     mockFormik.values.title = testValue
+  //   })
+
+  //   console.log('mockFormik.values', mockFormik.values)
+
+  //   expect(titleInputElement).toHaveValue(testValue)
+  //   screen.debug(titleInputElement)
   // })
 })
