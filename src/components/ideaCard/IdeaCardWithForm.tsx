@@ -49,7 +49,7 @@ export const IdeaCardWithForm = ({
               <StyledEditIcon as={EditIcon} />
             </StyledEditButton>
 
-            <StyledTitle>{title}</StyledTitle>
+            <StyledTitle data-testid={'card-title'}>{title}</StyledTitle>
 
             <StyledDescription>{description}</StyledDescription>
           </StyledTextContainer>
