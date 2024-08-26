@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { IdeaCard } from '../../index'
+import { SampleIdeaCard } from '../../index'
 import { useWindowWidth } from '../../../hooks/index'
 import { sampleCardsList } from './data/sampleCardsList'
 import { FeatureCard } from './components/FeatureCard'
@@ -32,7 +32,7 @@ export const Features = () => {
 
       {sampleCardsToDisplay.map((card) => {
         return (
-          <IdeaCard
+          <SampleIdeaCard
             key={card.key}
             title={card.title}
             description={card.description}

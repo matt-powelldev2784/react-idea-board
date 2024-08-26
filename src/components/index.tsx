@@ -1,6 +1,6 @@
 import { NavigationBar } from './NavigationBar/NavigationBar'
 import { Hero } from './home/hero/Hero'
-import { IdeaCard } from './ideaCard/IdeaCard'
+import { SampleIdeaCard } from './ideaCard/SampleIdeaCard'
 import { IdeaCardWithForm } from './ideaCard/IdeaCardWithForm'
 import { Features } from './home/features/Features'
 import { Footer } from './home/footer/Footer'
@@ -12,7 +12,7 @@ import { Blank } from './pages/Blank'
 export {
   NavigationBar,
   Hero,
-  IdeaCard,
+  SampleIdeaCard,
   IdeaCardWithForm,
   Features,
   Footer,

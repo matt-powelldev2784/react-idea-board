@@ -9,7 +9,7 @@ interface IdeaCardProps {
   numberOfStars: number
 }
 
-export const IdeaCard = ({
+export const SampleIdeaCard = ({
   title,
   description,
   lastUpdated,

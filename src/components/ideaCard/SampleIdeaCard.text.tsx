@@ -1,7 +1,5 @@
-// IdeaCard.test.tsx
-
 import { render, screen } from '@testing-library/react'
-import { IdeaCard } from './IdeaCard'
+import { SampleIdeaCard } from './SampleIdeaCard'
 import childWithIdeaImage from '../../assets/images/bitmap/kid_idea.png'
 import { theme } from '../../theme/theme'
 import { MemoryRouter } from 'react-router-dom'
@@ -20,7 +18,7 @@ describe('IdeaCard', () => {
     render(
       <ThemeProvider theme={theme}>
         <MemoryRouter>
-          <IdeaCard {...sampleProps} />
+          <SampleIdeaCard {...sampleProps} />
         </MemoryRouter>
       </ThemeProvider>
     )
