@@ -122,8 +122,12 @@ const StyledTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 140px;
+  height: 180px;
   margin-top: 12px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
+    height: 120px;
+  }
 `
 
 const StyledEditButton = styled.button`
