@@ -1,9 +1,15 @@
 import styled from 'styled-components'
-import { getIdeasFromStorage } from '../../utils'
 import { IdeaCardWithForm } from '../index'
+// import { CustomButton } from '../../ui'
+import { useGetSortedIdeas } from './hooks/useGetSortedIdeas'
 
 export const Ideas = () => {
-  const ideas = getIdeasFromStorage()
+  const { ideasList } = useGetSortedIdeas({
+    sortBy: 'lastUpdated',
+    sortType: 'date',
+  })
+
+  // console.log('ideas', ideas)
 
   return (
     <StyledSection>
@@ -14,8 +20,10 @@ export const Ideas = () => {
         </StyledText>
       </StyledTitleContainer>
 
+      {/* <CustomButton text={'SortIdea'} onClick={sortIdeas} /> */}
+
       <StyledCardContainer>
-        {ideas.map((idea) => (
+        {ideasList.map((idea) => (
           <IdeaCardWithForm
             key={idea.key}
             id={idea.key}
