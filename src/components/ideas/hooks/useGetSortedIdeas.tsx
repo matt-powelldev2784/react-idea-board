@@ -12,16 +12,13 @@ export const useGetSortedIdeas = ({ sortBy }: GetIdeasProps) => {
   const [ideasList, setIdeasList] = useState<IdeaCardT[]>([])
 
   useEffect(() => {
-    if (!ideasList.length) {
-      const ideas = getIdeasFromStorage() as IdeaCardT[]
+    const ideas = getIdeasFromStorage() as IdeaCardT[]
 
-      const sortedIdeas =
-        sortBy === 'date' ? sortByDate(ideas) : sortByTitle(ideas)
+    const sortedIdeas =
+      sortBy === 'date' ? sortByDate(ideas) : sortByTitle(ideas)
 
-      setIdeasList(sortedIdeas)
-      console.log('sortedIdeas', sortedIdeas)
-    }
-  }, [ideasList, sortBy])
+    setIdeasList(sortedIdeas)
+  }, [sortBy])
 
   return { ideasList }
 }

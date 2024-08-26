@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 import { IdeaCardWithForm } from '../index'
-// import { CustomButton } from '../../ui'
+import { CustomButton } from '../../ui'
 import { useGetSortedIdeas } from './hooks/useGetSortedIdeas'
+import { useState } from 'react'
+
+type sortBy = 'title' | 'date'
 
 export const Ideas = () => {
+  const [sortField, setSortField] = useState<sortBy>('title')
   const { ideasList } = useGetSortedIdeas({
-    sortBy: 'title',
+    sortBy: sortField,
   })
-
-  // console.log('ideas', ideas)
 
   return (
     <StyledSection>
@@ -19,7 +21,14 @@ export const Ideas = () => {
         </StyledText>
       </StyledTitleContainer>
 
-      {/* <CustomButton text={'SortIdea'} onClick={sortIdeas} /> */}
+      <CustomButton
+        text={'Sort By Title'}
+        onClick={() => setSortField('title')}
+      />
+      <CustomButton
+        text={'Sort By Date'}
+        onClick={() => setSortField('date')}
+      />
 
       <StyledCardContainer>
         {ideasList.map((idea) => (
