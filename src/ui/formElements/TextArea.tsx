@@ -1,5 +1,5 @@
 import { FormikProps } from 'formik'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import styled from 'styled-components'
 
 interface InputProps {
@@ -11,6 +11,8 @@ interface InputProps {
 
 export const TextArea = ({ formik, id, name, labelText }: InputProps) => {
   const [isFocused, setIsFocused] = useState<boolean>(false)
+  const [characterCount, setCharacterCount] = useState<number>(0)
+  const characterCountRef = useRef<HTMLTextAreaElement>(null)
 
   const handleFocus = () => {
     setIsFocused(true)
@@ -21,21 +23,31 @@ export const TextArea = ({ formik, id, name, labelText }: InputProps) => {
     formik.handleBlur(e)
   }
 
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (characterCountRef.current) {
+      setCharacterCount(characterCountRef.current.value.length)
+    }
+    formik.handleChange(e)
+  }
+
   const isError =
     formik.touched[name] && formik.errors[name] && !isFocused ? true : false
 
   return (
     <StyledContainer>
       <StyledLabel htmlFor={id}>{labelText.toUpperCase()}</StyledLabel>
+      <StyleCharacterCount>{characterCount}</StyleCharacterCount>
 
       <StyledTextArea
         id={id}
         name={name}
-        onChange={formik.handleChange}
+        onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
         value={formik.values[name] as any}
         $isError={isError}
+        ref={characterCountRef}
+        placeholder="Enter your idea here (max 140 characters)"
       />
 
       {isError ? (
@@ -46,6 +58,7 @@ export const TextArea = ({ formik, id, name, labelText }: InputProps) => {
 }
 
 const StyledContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -57,12 +70,22 @@ const StyledContainer = styled.div`
 `
 
 const StyledLabel = styled.label`
-  color: ${({ theme }) => theme.colors.textGrey};
   margin: 0;
   padding-left: 2px;
   color: ${({ theme }) => theme.colors.primaryBlue};
   font-size: 14px;
   font-family: 'Roboto_600Bold';
+`
+
+const StyleCharacterCount = styled.p`
+  color: ${({ theme }) => theme.colors.boxOutlineGrey};
+  margin: 0;
+  padding-left: 2px;
+  font-size: 14px;
+  text-align: right;
+  position: absolute;
+  right: 5px;
+  top: 0;
 `
 
 const StyledTextArea = styled.textarea<{ $isError: boolean }>`
