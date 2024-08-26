@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Stars } from './components/star/Stars'
 import { useState } from 'react'
-import { EditIcon, CrossIcon } from '../../assets/images/svg'
+import { EditIcon, BinIcon } from '../../assets/images/svg'
 import childWithIdeaImage from '../../assets/images/bitmap/kid_idea.png'
 import { IdeaCardT } from '../../types'
 import { handleEditIdea } from './utils/handleEditIdea'
@@ -36,7 +36,7 @@ export const IdeaCardWithForm = ({
     <StyledArticle>
       <StyledImageContainer>
         <StyledDeleteButton onClick={handleDeletePress}>
-          <StyledCrossIcon as={CrossIcon} />
+          <StyledDeleteIcon as={BinIcon} />
         </StyledDeleteButton>
 
         <StyledImage src={childWithIdeaImage} alt="Child with idea" />
@@ -108,10 +108,10 @@ const StyledDeleteButton = styled.button`
   top: 0;
   z-index: 999;
 `
-const StyledCrossIcon = styled.svg`
-  width: 13px;
-  height: 13px;
-  margin-top: 8px;
+const StyledDeleteIcon = styled.svg`
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
   margin-right: 12px;
   z-index: 999;
   opacity: 0.8;

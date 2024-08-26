@@ -9,6 +9,7 @@ import { ReactComponent as EditIcon } from '../../images/svg/edit.svg'
 import { ReactComponent as Error } from '../../images/svg/error.svg'
 import { ReactComponent as ArrowRight } from '../../images/svg/arrow_right.svg'
 import { ReactComponent as CrossIcon } from '../../images/svg//cross.svg'
+import { ReactComponent as BinIcon } from '../../images/svg/bin_white.svg'
 
 export {
   BurgerImage,
@@ -22,4 +23,5 @@ export {
   Error,
   ArrowRight,
   CrossIcon,
+  BinIcon,
 }
