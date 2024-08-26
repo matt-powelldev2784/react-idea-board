@@ -36,7 +36,9 @@ export const TextArea = ({ formik, id, name, labelText }: InputProps) => {
   return (
     <StyledContainer>
       <StyledLabel htmlFor={id}>{labelText.toUpperCase()}</StyledLabel>
-      <StyleCharacterCount>{characterCount}</StyleCharacterCount>
+      <StyleCharacterCount>
+        {characterCount > 120 ? `${characterCount} / 140` : null}
+      </StyleCharacterCount>
 
       <StyledTextArea
         id={id}
@@ -78,14 +80,14 @@ const StyledLabel = styled.label`
 `
 
 const StyleCharacterCount = styled.p`
-  color: ${({ theme }) => theme.colors.boxOutlineGrey};
-  margin: 0;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  color: grey;
   padding-left: 2px;
   font-size: 14px;
   text-align: right;
-  position: absolute;
-  right: 5px;
-  top: 0;
+  font-size: 12px;
 `
 
 const StyledTextArea = styled.textarea<{ $isError: boolean }>`
