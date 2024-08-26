@@ -13,77 +13,100 @@ const initialValues: FormValues = {
   testInput: '',
 }
 
-const mockFormikProps: FormikProps<FormValues> = {
+const mockFormikProps: Partial<FormikProps<FormValues>> = {
   initialValues,
   values: initialValues,
-  errors: {},
-  touched: {},
-  isSubmitting: false,
-  isValidating: false,
-  submitCount: 0,
   handleBlur: jest.fn(),
   handleChange: jest.fn(),
-  handleReset: jest.fn(),
-  handleSubmit: jest.fn(),
-  setErrors: jest.fn(),
-  setFormikState: jest.fn(),
-  setFieldTouched: jest.fn(),
   setFieldValue: jest.fn(),
-  setFieldError: jest.fn(),
-  setStatus: jest.fn(),
-  setSubmitting: jest.fn(),
-  setTouched: jest.fn(),
-  setValues: jest.fn(),
-  submitForm: jest.fn(),
-  validateField: jest.fn(),
-  validateForm: jest.fn(),
-  resetForm: jest.fn(),
-  getFieldProps: jest.fn(),
-  getFieldMeta: jest.fn(),
-  getFieldHelpers: jest.fn(),
-  registerField: jest.fn(),
-  unregisterField: jest.fn(),
-  validateOnBlur: true,
-  validateOnChange: true,
-  validateOnMount: false,
-  dirty: false,
-  isValid: true,
-  initialErrors: {},
-  initialTouched: {},
-  initialStatus: undefined,
-  status: undefined,
+  errors: { testInput: 'Required' },
+  touched: { testInput: true },
 }
 
-test('it displays and updates the input value correctly', async () => {
-  // eslint-disable-next-line testing-library/no-unnecessary-act
-  await act(async () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <Formik initialValues={initialValues} onSubmit={() => {}}>
-            {(formikProps) => (
-              <Input
-                formik={{ ...mockFormikProps, ...formikProps }}
-                id="testInput"
-                name="testInput"
-                type="text"
-                labelText="Test Input"
-              />
-            )}
-          </Formik>
-        </MemoryRouter>
-      </ThemeProvider>
-    )
+describe('Input', () => {
+  const renderInput = async () => {
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      render(
+        <ThemeProvider theme={theme}>
+          <MemoryRouter>
+            <Formik
+              initialValues={initialValues}
+              onSubmit={() => {}}
+              validate={(values) => {
+                const errors: Partial<FormValues> = {}
+                if (!values.testInput) {
+                  errors.testInput = 'Required'
+                }
+                return errors
+              }}
+            >
+              {(formikProps) => (
+                <Input
+                  formik={{ ...mockFormikProps, ...formikProps }}
+                  id="testInput"
+                  name="testInput"
+                  type="text"
+                  labelText="Test Input"
+                />
+              )}
+            </Formik>
+          </MemoryRouter>
+        </ThemeProvider>
+      )
+    })
+  }
+
+  test('it displays and updates the input value correctly', async () => {
+    await renderInput()
+
+    const inputElement = screen.getByLabelText(/test input/i)
+    const testValue = 'Hello, World!'
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      fireEvent.change(inputElement, { target: { value: testValue } })
+    })
+
+    expect(inputElement).toHaveValue(testValue)
   })
 
-  const inputElement = screen.getByLabelText(/test input/i)
-  const testValue = 'Hello, World!'
+  test('it handles focus and blur events correctly', async () => {
+    await renderInput()
 
-  // eslint-disable-next-line testing-library/no-unnecessary-act
-  await act(async () => {
-    fireEvent.change(inputElement, { target: { value: testValue } })
+    const inputElement = screen.getByLabelText(/test input/i)
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      inputElement.focus()
+    })
+
+    expect(inputElement).toHaveFocus()
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      inputElement.blur()
+    })
+
+    expect(inputElement).not.toHaveFocus()
   })
 
-  // Assert that the input field value matches the typed text
-  expect(inputElement).toHaveValue(testValue)
+  test('it displays error message correctly', async () => {
+    await renderInput()
+
+    const inputElement = screen.getByLabelText(/test input/i)
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      inputElement.focus()
+      fireEvent.change(inputElement, { target: { value: 'typed value' } })
+      fireEvent.change(inputElement, { target: { value: '' } })
+      inputElement.blur()
+    })
+
+    const errorMessage = screen.getByText(/required/i)
+    expect(errorMessage).toBeInTheDocument()
+  })
 })
+
+
