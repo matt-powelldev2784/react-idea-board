@@ -75,6 +75,7 @@ const StyledArticle = styled.article`
   border: 1.4px solid ${({ theme }) => theme.colors.boxOutlineGrey};
   padding-bottom: 16px;
   overflow: hidden;
+  max-width: 800px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.large}) {
   }
