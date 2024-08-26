@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react'
 import { getIdeasFromStorage } from '../../../utils'
 import { IdeaCardT } from '../../../types'
 import { sortByDate } from '../utils/sortByDate'
-import { sortByString } from '../utils/sortByString'
+import { sortByTitle } from '../utils/sortByTitle'
 
 interface GetIdeasProps {
-  sortBy: string
-  sortType: 'number' | 'string' | 'date'
+  sortBy: 'title' | 'date'
 }
 
-export const useGetSortedIdeas = ({ sortBy, sortType }: GetIdeasProps) => {
+export const useGetSortedIdeas = ({ sortBy }: GetIdeasProps) => {
   const [ideasList, setIdeasList] = useState<IdeaCardT[]>([])
 
   useEffect(() => {
@@ -17,12 +16,12 @@ export const useGetSortedIdeas = ({ sortBy, sortType }: GetIdeasProps) => {
       const ideas = getIdeasFromStorage() as IdeaCardT[]
 
       const sortedIdeas =
-        sortType === 'date' ? sortByDate(ideas) : sortByString(ideas)
+        sortBy === 'date' ? sortByDate(ideas) : sortByTitle(ideas)
 
       setIdeasList(sortedIdeas)
       console.log('sortedIdeas', sortedIdeas)
     }
-  }, [ideasList, sortBy, sortType])
+  }, [ideasList, sortBy])
 
   return { ideasList }
 }

@@ -5,8 +5,7 @@ import { useGetSortedIdeas } from './hooks/useGetSortedIdeas'
 
 export const Ideas = () => {
   const { ideasList } = useGetSortedIdeas({
-    sortBy: 'lastUpdated',
-    sortType: 'date',
+    sortBy: 'title',
   })
 
   // console.log('ideas', ideas)
