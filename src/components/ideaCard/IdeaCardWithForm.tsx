@@ -35,7 +35,10 @@ export const IdeaCardWithForm = ({
   return (
     <StyledArticle>
       <StyledImageContainer>
-        <StyledDeleteButton onClick={handleDeletePress}>
+        <StyledDeleteButton
+          onClick={handleDeletePress}
+          aria-label={'Delete idea'}
+        >
           <StyledDeleteIcon as={BinIcon} />
         </StyledDeleteButton>
 
@@ -45,7 +48,10 @@ export const IdeaCardWithForm = ({
       {!isFormVisible ? (
         <>
           <StyledTextContainer>
-            <StyledEditButton onClick={handleEditIdeaPress}>
+            <StyledEditButton
+              onClick={handleEditIdeaPress}
+              aria-label={'Edit idea'}
+            >
               <StyledEditIcon as={EditIcon} />
             </StyledEditButton>
 
