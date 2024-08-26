@@ -33,4 +33,5 @@ const StyledButton = styled.button<{ bgColor?: string; textColor?: string }>`
   letter-spacing: 0.51px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  padding: 10px 20px;
 `

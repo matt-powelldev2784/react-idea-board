@@ -7,7 +7,7 @@ import { useState } from 'react'
 type sortBy = 'title' | 'date'
 
 export const Ideas = () => {
-  const [sortField, setSortField] = useState<sortBy>('title')
+  const [sortField, setSortField] = useState<sortBy>('date')
   const { ideasList } = useGetSortedIdeas({
     sortBy: sortField,
   })
@@ -21,14 +21,16 @@ export const Ideas = () => {
         </StyledText>
       </StyledTitleContainer>
 
-      <CustomButton
-        text={'Sort By Title'}
-        onClick={() => setSortField('title')}
-      />
-      <CustomButton
-        text={'Sort By Date'}
-        onClick={() => setSortField('date')}
-      />
+      <StyledButtonContainer>
+        <CustomButton
+          text={'Sort By Title'}
+          onClick={() => setSortField('title')}
+        />
+        <CustomButton
+          text={'Sort By Date'}
+          onClick={() => setSortField('date')}
+        />
+      </StyledButtonContainer>
 
       <StyledCardContainer>
         {ideasList.map((idea) => (
@@ -68,7 +70,7 @@ const StyledTitleContainer = styled.div`
   flex-direction: column;
   width: fit-content;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   margin-left: 15px;
   margin-right: 15px;
   width: 100%;
@@ -86,6 +88,15 @@ const StyledText = styled.p`
   font-family: 'Roboto_400Regular';
   color: ${({ theme }) => theme.colors.black};
   text-align: center;
+`
+
+const StyledButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 `
 
 const StyledCardContainer = styled.div`
